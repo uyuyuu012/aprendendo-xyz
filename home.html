@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="bg-white min-h-screen">
+    <header class="flex flex-wrap items-baseline p-10">
+
+        <!-- Logo -->
+        <div
+            class="w-32 h-32 bg-yellow-400 border-4 border-[#303638] rounded-[20px] rotate-[-5deg] flex items-center justify-center">
+            <i class="fa-solid fa-graduation-cap text-[#303638] text-4xl rotate-[5deg]"></i>
+        </div>
+
+        <!-- Nome -->
+        <h1 class="text-[#ed3945] text-4xl font-bold mt-5 flex justify-baseline pl-9">
+            Aprendendo XYZ
+        </h1>
+    </header>
+    <section class="w-3/4 h-40 bg-amber-200 flex flex-col border-4 border-black rounded-2xl mx-auto">
+        <div class="flex justify-center content-center pt-10 font-bold text-2xl">
+            <h1>Qual o desafio de hoje?</h1>
+        </div>
+        <div class="flex justify-center content-center pt-1">
+            <h1>Escolha uma disciplina para trilhar seu conhecimento!</h1>
+        </div>
+    </section>
+
+    <section class="w-3/4 mx-auto pt-10 flex gap-4">
+
+        <button onclick="trocar()"
+            class="w-1/2 bg-[rgb(200,0,190)] border-4 border-[#303638] rounded-[20px] flex flex-col items-center justify-center h-32">
+            <i class="fa-solid fa-calculator bg-white rounded-xl text-4xl p-1"></i>
+            <h1 class="pt-1 text-xl text-white">Matemática</h1>
+        </button>
+
+        <button onclick="trocar()"
+            class="w-1/2 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex flex-col items-center justify-center h-32">
+            <i class="fa-solid fa-book bg-white rounded-xl text-4xl p-1"></i>
+            <h1 class="pt-1 text-xl text-white">Portugues</h1>
+        </button>
+
+    </section>
+
+    <script src="./src/JS/script.js"></script>
+</body>
+
+</html>
