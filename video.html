@@ -5,26 +5,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-400">
-    <header class="bg-blue-500 flex flex-wrap p-5 text-4xl">Pagina 1</header>
-    <div class=" p-10 flex flex-col w-100 h-100">
-        <p class="p-2">Digite o Título do projeto</p>
-        <input id="titulo" type="text" class="gap-10 w-50 h-auto">
-    </div>
-    <div class=" p-10 flex flex-col w-100 h-100">
-        <p>Digite o texto</p>
-        <input type="text" class="gap-10 w-50 h-auto">
-    </div>
-    
+<body class="overscroll-x-none bg-white min-h-screen">
+    <header class="flex flex-wrap items-baseline p-10">
 
-    
-    <button class="bg-amber-700 flex flex-col justify-center">Finalizar</button>
+        <!-- Logo -->
+        <div
+            class=" w-32 h-32 bg-yellow-400 border-4 border-[#303638] rounded-[20px] rotate-[-5deg] flex items-center justify-center">
+            <i class="fa-solid fa-graduation-cap text-[#303638] text-4xl rotate-[5deg]"></i>
+        </div>
+
+        <!-- Nome -->
+        <h1 class="text-[#ed3945] text-4xl font-bold mt-5 flex justify-baseline pl-9">
+            Aprendendo XYZ - Aula 1
+        </h1>
+
+    </header>
+
+    <section id="video" class="mx-auto w-1/2 bg-amber-400 flex flex-col items-center gap-6 p-5">
+
+        <!-- VÍDEO -->
+        <video id="meuVideo" preload="auto" class="w-full rounded-lg shadow-lg" autoplay controls>
+            <source src="./src/IMG/WhatsApp Video 2026-08-31 at 13.02.46.mp4" type="video/mp4">
+        </video>
+
+
+        <!-- PERGUNTAS -->
+        <div id="perguntas" class="hidden w-full flex items-center gap-4">
+
+            <button onclick="responder('A')"
+                class="w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20">
+                <h1 class="text-xl text-white">A</h1>
+            </button>
+
+            <button onclick="responder('B')"
+                class="w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20">
+                <h1 class="text-xl text-white">B</h1>
+            </button>
+
+            <button onclick="responder('C')"
+                class="w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20">
+                <h1 class="text-xl text-white">C</h1>
+            </button>
+
+            <button onclick="responder('D')"
+                class="w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20">
+                <h1 class="text-xl text-white">D</h1>
+            </button>
+
+        </div>
+
+    </section>
+
+
     <script src="./src/JS/script.js"></script>
-
 </body>
 
 </html>
