@@ -16,6 +16,26 @@ function validar() {
   }
 }
 
-function trocar(){
+function trocar1(){
     location.href = "ano.html"
+}
+function trocar2(){
+  location.href = "unidades.html"
+}
+function trocar3(){
+  location.href = "video.html"
+}
+
+function abrirMenu() {
+
+    const aside = document.getElementById("aside");
+
+    if (aside.classList.contains("w-0")) {
+        aside.classList.remove("w-0");
+        aside.classList.add("w-80");
+    } else {
+        aside.classList.remove("w-80");
+        aside.classList.add("w-0");
+    }
+
 }
