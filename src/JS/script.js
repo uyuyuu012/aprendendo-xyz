@@ -26,28 +26,41 @@ function trocar3() {
     location.href = "video.html"
 }
 
+const video2 = document.getElementById("video2");
 
 
 function abrirMenu() {
 
     const aside = document.getElementById("aside");
+    const video = document.getElementById("video2");
 
     if (aside.classList.contains("w-0")) {
+
         aside.classList.remove("w-0");
-        aside.classList.add("w-80");
+        aside.classList.add("w-1/3");
+
+        video.play();
+
     } else {
-        aside.classList.remove("w-80");
+
+        aside.classList.remove("w-1/3");
         aside.classList.add("w-0");
+
+        video.pause();
+
     }
 
 }
 
 const video = document.getElementById("meuVideo");
 const perguntas = document.getElementById("perguntas");
-const buttonA = document.querySelector("#btn-a");
 
+const buttonA = document.getElementById("btn-a");
+const buttonB = document.getElementById("btn-b");
+const buttonC = document.getElementById("btn-c");
+const buttonD = document.getElementById("btn-d");
 
-
+const botaoD = document.getElementById("botao-d")
 
 if (video && perguntas) {
 
@@ -60,74 +73,208 @@ if (video && perguntas) {
         // PERGUNTA 1
         {
             pararEm: 5.9,
+
+            botoes: {
+                A: "Fração como parte de um inteiro",
+                B: "Fração como uma divisão",
+                C: "Fração com uma razão",
+                D: "Fração como um operador"
+            },
+
             respostas: {
                 A: {
+                    tempo: 7,
+                    proxima: 1
+                },
+
+                B: {
+                    tempo: 7,
+                    proxima: 1
+                },
+
+                C: {
+                    tempo: 7,
+                    proxima: 1
+                },
+
+                D: {
                     tempo: 7,
                     proxima: 1
                 }
             }
         },
 
+
         // PERGUNTA 2
         {
             pararEm: 33,
+
+            botoes: {
+                A: "4",
+                B: "6",
+                C: "8",
+                D: ""
+            },
+
             respostas: {
                 A: {
-                    texto: "asdasd",
                     tempo: 34,
                     proxima: 2
                 },
+
                 B: {
                     tempo: 34,
                     proxima: 2
                 },
+
                 C: {
+                    tempo: 45,
+                    proxima: 3
+                },
+
+                D: {
                     tempo: 45,
                     proxima: 3
                 }
             }
         },
+
 
         // PERGUNTA 3
         {
             pararEm: 44,
+
+            botoes: {
+                A: "4",
+                B: "6",
+                C: "8",
+                D: ""
+            },
+
             respostas: {
                 A: {
                     tempo: 34,
                     proxima: 2
                 },
+
                 B: {
                     tempo: 34,
                     proxima: 2
                 },
+
                 C: {
+                    tempo: 45,
+                    proxima: 3
+                },
+
+                D: {
                     tempo: 45,
                     proxima: 3
                 }
             }
         },
 
+
         // PERGUNTA 4
         {
             pararEm: 60,
+
+            botoes: {
+                A: "3",
+                B: "5",
+                C: "8",
+                D: ""
+            },
+
             respostas: {
                 A: {
                     tempo: 71,
-                    proxima: 4
+                    proxima: 5
                 },
+
                 B: {
                     tempo: 61,
                     proxima: 4
                 },
+
                 C: {
+                    tempo: 61,
+                    proxima: 4
+                },
+
+                D: {
+                    tempo: 61,
+                    proxima: 4
+                }
+            }
+        },
+
+        {
+            pararEm: 70,
+
+            botoes: {
+                A: "3",
+                B: "5",
+                C: "8",
+                D: ""
+            },
+
+            respostas: {
+                A: {
+                    tempo: 71,
+                    proxima: 5
+                },
+
+                B: {
+                    tempo: 61,
+                    proxima: 4
+                },
+
+                C: {
+                    tempo: 61,
+                    proxima: 4
+                },
+
+                D: {
+                    tempo: 61,
+                    proxima: 4
+                }
+            }
+        },
+
+        {
+            pararEm: 128,
+
+            botoes: {
+                A: "8/5",
+                B: "3/8",
+                C: "5/8",
+                D: ""
+            },
+
+            respostas: {
+                A: {
+                    tempo: 129,
+                    proxima: 6
+                },
+
+                B: {
+                    tempo: 129,
+                    proxima: 6
+                },
+
+                C: {
+                    tempo: 129,
+                    proxima: 6
+                },
+
+                D: {
                     tempo: 61,
                     proxima: 4
                 }
             }
         }
     ];
-
-    
 
 
 
@@ -141,40 +288,61 @@ if (video && perguntas) {
 
 
     // ========================================
+    // ATUALIZA OS BOTÕES
+    // ========================================
+
+    function atualizarBotoes(pergunta) {
+
+        buttonA.textContent = pergunta.botoes.A;
+        buttonB.textContent = pergunta.botoes.B;
+        buttonC.textContent = pergunta.botoes.C;
+        buttonD.textContent = pergunta.botoes.D;
+
+        if (perguntaAtual === 0) {
+            botaoD.classList.remove("hidden");
+        } else {
+            botaoD.classList.add("hidden");
+        }
+
+    }
+
+
+    // ========================================
     // VERIFICA TEMPO DO VÍDEO
     // ========================================
 
     video.addEventListener("timeupdate", function () {
 
-        // Não faz nada enquanto estamos mudando de trecho
         if (mudandoVideo) {
             return;
         }
 
-        // Todas as perguntas já foram feitas
         if (perguntaAtual >= perguntasConfig.length) {
             return;
         }
 
-        // Já existe uma pergunta aberta
         if (perguntaAtiva) {
             return;
         }
 
         const pergunta = perguntasConfig[perguntaAtual];
 
-        // Chegou no momento da pergunta
+
         if (video.currentTime >= pergunta.pararEm) {
 
             // Para o vídeo
             video.pause();
 
+            // Muda os textos dos 4 botões
+            atualizarBotoes(pergunta);
+
             // Mostra as perguntas
             perguntas.classList.remove("hidden");
 
-            // Marca como ativa
+            // Ativa a pergunta
             perguntaAtiva = true;
         }
+
     });
 
 
@@ -184,7 +352,6 @@ if (video && perguntas) {
 
     window.responder = function (resposta) {
 
-        // Evita clicar duas vezes
         if (!perguntaAtiva) {
             return;
         }
@@ -197,7 +364,6 @@ if (video && perguntas) {
 
         const escolha = pergunta.respostas[resposta];
 
-        // Resposta não existe
         if (!escolha) {
             return;
         }
@@ -219,30 +385,28 @@ if (video && perguntas) {
 
 
         // ====================================
-        // MUDA PARA O TEMPO ESCOLHIDO
+        // MUDA O TEMPO DO VÍDEO
         // ====================================
 
         video.currentTime = escolha.tempo;
 
 
-        // Define qual será a próxima pergunta
+        // Define a próxima pergunta
         perguntaAtual = escolha.proxima;
-        
-    
-
 
 
         // ====================================
-        // ESPERA O VÍDEO TERMINAR DE PROCURAR
+        // CONTINUA O VÍDEO
         // ====================================
 
         video.addEventListener("seeked", function continuarVideo() {
 
-            // Remove o evento para não acumular vários
-            video.removeEventListener("seeked", continuarVideo);
+            video.removeEventListener(
+                "seeked",
+                continuarVideo
+            );
 
 
-            // Tenta continuar o vídeo
             const promessa = video.play();
 
 
@@ -251,29 +415,31 @@ if (video && perguntas) {
                 promessa
                     .then(function () {
 
-                        // Só libera depois que o vídeo começou
                         setTimeout(function () {
                             mudandoVideo = false;
                         }, 200);
 
                     })
+
                     .catch(function (erro) {
 
-                        console.log("Erro ao continuar o vídeo:", erro);
+                        console.log(
+                            "Erro ao continuar o vídeo:",
+                            erro
+                        );
 
                         mudandoVideo = false;
+
                     });
 
             } else {
 
                 mudandoVideo = false;
+
             }
 
         });
 
     };
-    if (perguntaAtiva === 1) {
-        buttonA.textContent = "4";
-    }
 
 }
