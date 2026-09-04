@@ -25,10 +25,10 @@
 
     </header>
 
-    <section id="video" class="mx-auto w-1/2 bg-amber-400 flex flex-col items-center gap-6 p-5">
+    <section id="video" class="mx-auto w-1/2 flex flex-col items-center gap-6 p-5">
 
         <!-- VÍDEO -->
-        <video id="meuVideo" preload="auto" class="w-full rounded-lg shadow-lg" autoplay controls>
+        <video id="meuVideo" preload="auto" class="w-full rounded-lg shadow-lg" controls>
             <source src="./src/IMG/WhatsApp Video 2026-08-31 at 13.02.46.mp4" type="video/mp4">
         </video>
 
@@ -38,25 +38,26 @@
 
             <button onclick="responder('A')"
                 class="w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20">
-                <h1 class="text-xl text-white">A</h1>
+                <h1 id="bnt-a" class="text-xl text-white">A</h1>
             </button>
 
             <button onclick="responder('B')"
                 class="w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20">
-                <h1 class="text-xl text-white">B</h1>
+                <h1 id="btn-b" class="text-xl text-white">B</h1>
             </button>
 
             <button onclick="responder('C')"
                 class="w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20">
-                <h1 class="text-xl text-white">C</h1>
+                <h1 id="bnt-c" class="text-xl text-white">C</h1>
             </button>
 
             <button onclick="responder('D')"
                 class="w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20">
-                <h1 class="text-xl text-white">D</h1>
+                <h1 id="btn-d" class="text-xl text-white">D</h1>
             </button>
 
         </div>
+         
 
     </section>
 

@@ -1,47 +1,53 @@
 function validar() {
-  let usuario = document.getElementById("usuario").value;
-  let senha = document.getElementById("senha").value;
+    let usuario = document.getElementById("usuario").value;
+    let senha = document.getElementById("senha").value;
 
-  if (usuario === "" || senha === "") {
-    alert("Por favor, preencha todos os campos.");
-    return;
-  }
+    if (usuario === "" || senha === "") {
+        alert("Por favor, preencha todos os campos.");
+        return;
+    }
 
-  if (usuario === "admin" && senha === "admin") {
-    location.href = "home.html";
-    senha === "";
-    usuario === "";
-  } else {
-    alert("Usuário e senha inválidos.");
-  }
+    if (usuario === "admin" && senha === "admin") {
+        location.href = "home.html";
+        senha === "";
+        usuario === "";
+    } else {
+        alert("Usuário e senha inválidos.");
+    }
 }
 
 function trocar() {
-  location.href = "ano.html"
+    location.href = "ano.html"
 }
 function trocar2() {
-  location.href = "unidades.html"
+    location.href = "unidades.html"
 }
 function trocar3() {
-  location.href = "video.html"
+    location.href = "video.html"
 }
+
+
 
 function abrirMenu() {
 
-  const aside = document.getElementById("aside");
+    const aside = document.getElementById("aside");
 
-  if (aside.classList.contains("w-0")) {
-    aside.classList.remove("w-0");
-    aside.classList.add("w-80");
-  } else {
-    aside.classList.remove("w-80");
-    aside.classList.add("w-0");
-  }
+    if (aside.classList.contains("w-0")) {
+        aside.classList.remove("w-0");
+        aside.classList.add("w-80");
+    } else {
+        aside.classList.remove("w-80");
+        aside.classList.add("w-0");
+    }
 
 }
 
 const video = document.getElementById("meuVideo");
 const perguntas = document.getElementById("perguntas");
+const buttonA = document.querySelector("#btn-a");
+
+
+
 
 if (video && perguntas) {
 
@@ -67,6 +73,7 @@ if (video && perguntas) {
             pararEm: 33,
             respostas: {
                 A: {
+                    texto: "asdasd",
                     tempo: 34,
                     proxima: 2
                 },
@@ -75,8 +82,8 @@ if (video && perguntas) {
                     proxima: 2
                 },
                 C: {
-                    tempo: 33,
-                    proxima: 1
+                    tempo: 45,
+                    proxima: 3
                 }
             }
         },
@@ -119,6 +126,9 @@ if (video && perguntas) {
             }
         }
     ];
+
+    
+
 
 
     // ========================================
@@ -172,7 +182,7 @@ if (video && perguntas) {
     // RESPONDER PERGUNTA
     // ========================================
 
-    window.responder = function(resposta) {
+    window.responder = function (resposta) {
 
         // Evita clicar duas vezes
         if (!perguntaAtiva) {
@@ -217,6 +227,9 @@ if (video && perguntas) {
 
         // Define qual será a próxima pergunta
         perguntaAtual = escolha.proxima;
+        
+    
+
 
 
         // ====================================
@@ -259,5 +272,8 @@ if (video && perguntas) {
         });
 
     };
+    if (perguntaAtiva === 1) {
+        buttonA.textContent = "4";
+    }
 
 }
