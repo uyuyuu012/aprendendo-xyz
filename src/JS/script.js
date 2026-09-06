@@ -37,13 +37,13 @@ function abrirMenu() {
     if (aside.classList.contains("w-0")) {
 
         aside.classList.remove("w-0");
-        aside.classList.add("w-1/3");
+        aside.classList.add("w-1/2");
 
         video.play();
 
     } else {
 
-        aside.classList.remove("w-1/3");
+        aside.classList.remove("w-1/2");
         aside.classList.add("w-0");
 
         video.pause();
