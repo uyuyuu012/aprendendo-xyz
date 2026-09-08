@@ -61,6 +61,8 @@ const buttonB = document.getElementById("btn-b");
 const buttonC = document.getElementById("btn-c");
 const buttonD = document.getElementById("btn-d");
 
+const botaoB = document.getElementById("botao-b");
+const botaoC = document.getElementById("botao-c");
 const botaoD = document.getElementById("botao-d")
 
 if (video && perguntas) {
@@ -94,8 +96,8 @@ if (video && perguntas) {
                 },
 
                 C: {
-                    tempo: 10,
-                    proxima: 1
+                    tempo: 323,
+                    proxima: 15
                 },
 
                 D: {
@@ -265,7 +267,7 @@ if (video && perguntas) {
                 },
 
                 C: {
-                    tempo: 181,
+                    tempo: 160,
                     proxima: 7
                 },
 
@@ -277,7 +279,7 @@ if (video && perguntas) {
         },
 
         {
-            pararEm: 179,
+            pararEm: 159.5,
 
             botoes: {
                 A: "8/5",
@@ -298,7 +300,7 @@ if (video && perguntas) {
                 },
 
                 C: {
-                    tempo: 181,
+                    tempo: 160,
                     proxima: 7
                 },
 
@@ -379,9 +381,9 @@ if (video && perguntas) {
             pararEm: 240,
 
             botoes: {
-                A: "1",
-                B: "3",
-                C: "4",
+                A: "1/4",
+                B: "3/4",
+                C: "4/3",
                 D: ""
             },
 
@@ -392,13 +394,13 @@ if (video && perguntas) {
                 },
 
                 B: {
-                    tempo: 241,
-                    proxima: 10
+                    tempo: 259,
+                    proxima: 11
                 },
 
                 C: {
                     tempo: 259,
-                    proxima: 11
+                    proxima: 10
                 },
 
                 D: {
@@ -412,9 +414,9 @@ if (video && perguntas) {
             pararEm: 258,
 
             botoes: {
-                A: "1",
-                B: "3",
-                C: "4",
+                A: "1/4",
+                B: "3/4",
+                C: "4/3",
                 D: ""
             },
 
@@ -425,13 +427,13 @@ if (video && perguntas) {
                 },
 
                 B: {
-                    tempo: 241,
-                    proxima: 10
+                    tempo: 259,
+                    proxima: 11
                 },
 
                 C: {
                     tempo: 259,
-                    proxima: 11
+                    proxima: 10
                 },
 
                 D: {
@@ -440,7 +442,7 @@ if (video && perguntas) {
                 }
             }
         },
-        
+
         {
             pararEm: 275.5,
 
@@ -454,17 +456,17 @@ if (video && perguntas) {
             respostas: {
                 A: {
                     tempo: 276,
-                    proxima: 11
+                    proxima: 12
                 },
 
                 B: {
                     tempo: 309,
-                    proxima: 12
+                    proxima: 13
                 },
 
                 C: {
                     tempo: 276,
-                    proxima: 11
+                    proxima: 12
                 },
 
                 D: {
@@ -487,22 +489,88 @@ if (video && perguntas) {
             respostas: {
                 A: {
                     tempo: 276,
-                    proxima: 11
+                    proxima: 14
                 },
 
                 B: {
                     tempo: 309,
-                    proxima: 12
+                    proxima: 15
                 },
 
                 C: {
                     tempo: 276,
-                    proxima: 11
+                    proxima: 14
                 },
 
                 D: {
                     tempo: 61,
                     proxima: 4
+                }
+            }
+        },
+
+        {
+            pararEm: 308.5,
+
+            botoes: {
+                A: "Três quatro",
+                B: "Três quartos",
+                C: "Três quatro avos",
+                D: ""
+            },
+
+            respostas: {
+                A: {
+                    tempo: 276,
+                    proxima: 14
+                },
+
+                B: {
+                    tempo: 309,
+                    proxima: 15
+                },
+
+                C: {
+                    tempo: 276,
+                    proxima: 14
+                },
+
+                D: {
+                    tempo: 61,
+                    proxima: 4
+                }
+            }
+        },
+
+        {
+            pararEm: 317,
+
+            botoes: {
+                A: "Menu",
+                B: "",
+                C: "",
+                D: ""
+            },
+
+            respostas: {
+                A: {
+                    tempo: 0,
+                    proxima: 0
+                },
+
+                B: {
+                    tempo: 0,
+                    proxima: 0
+                },
+
+                C: {
+                    tempo: 0,
+                    proxima: 0
+                },
+
+                D: {
+                    tempo: 0,
+                    proxima: 0
                 }
             }
         }
@@ -555,6 +623,15 @@ if (video && perguntas) {
         } else {
             botaoD.classList.add("hidden");
         }
+
+        if (perguntaAtual === 15) {
+            botaoB.classList.add("hidden");
+            botaoC.classList.add("hidden");
+            botaoD.classList.add("hidden");
+        } else {
+            botaoB.classList.remove("hidden");
+            botaoC.classList.remove("hidden");
+        }
     }
 
 
@@ -596,6 +673,7 @@ if (video && perguntas) {
     // RESPONDER PERGUNTA
     // ========================================
 
+
     window.responder = function (resposta) {
 
         if (!perguntaAtiva) {
@@ -614,6 +692,47 @@ if (video && perguntas) {
             return;
         }
 
+        // ====================================
+        // VOLTAR PARA O MENU / COMEÇO
+        // ====================================
+
+        if (perguntaAtual === 15 && resposta === "A") {
+
+            perguntaAtiva = false;
+            mudandoVideo = true;
+
+            perguntas.classList.add("hidden");
+
+            perguntaAtual = 0;
+            video.currentTime = 0;
+
+            video.addEventListener("seeked", function voltarInicio() {
+
+                video.removeEventListener("seeked", voltarInicio);
+
+                atualizarBotoes(perguntasConfig[0]);
+
+                const promessa = video.play();
+
+                if (promessa !== undefined) {
+                    promessa
+                        .then(function () {
+                            setTimeout(function () {
+                                mudandoVideo = false;
+                            }, 200);
+                        })
+                        .catch(function (erro) {
+                            console.log("Erro ao iniciar o vídeo:", erro);
+                            mudandoVideo = false;
+                        });
+                } else {
+                    mudandoVideo = false;
+                }
+
+            });
+
+            return;
+        }
 
         // ====================================
         // BLOQUEIA O TIMEUPDATE
@@ -622,13 +741,11 @@ if (video && perguntas) {
         perguntaAtiva = false;
         mudandoVideo = true;
 
-
         // ====================================
         // ESCONDE AS PERGUNTAS
         // ====================================
 
         perguntas.classList.add("hidden");
-
 
         // ====================================
         // MUDA O TEMPO DO VÍDEO
@@ -636,10 +753,8 @@ if (video && perguntas) {
 
         video.currentTime = escolha.tempo;
 
-
         // Define a próxima pergunta
         perguntaAtual = escolha.proxima;
-
 
         // ====================================
         // CONTINUA O VÍDEO
@@ -652,9 +767,7 @@ if (video && perguntas) {
                 continuarVideo
             );
 
-
             const promessa = video.play();
-
 
             if (promessa !== undefined) {
 
@@ -666,7 +779,6 @@ if (video && perguntas) {
                         }, 200);
 
                     })
-
                     .catch(function (erro) {
 
                         console.log(
@@ -687,5 +799,4 @@ if (video && perguntas) {
         });
 
     };
-
-}
+};          
