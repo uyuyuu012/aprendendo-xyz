@@ -1,3 +1,4 @@
+
 function validar() {
     let usuario = document.getElementById("usuario").value;
     let senha = document.getElementById("senha").value;
@@ -7,7 +8,7 @@ function validar() {
         return;
     }
 
-    if (usuario === "admin" && senha === "admin") {
+    if (usuario === "admin" && senha === "123") {
         location.href = "home.html";
         senha === "";
         usuario === "";
@@ -72,7 +73,7 @@ if (video && perguntas) {
 
         // PERGUNTA 1
         {
-            pararEm: 5.9,
+            pararEm: 9.5,
 
             botoes: {
                 A: "Fração como parte de um inteiro",
@@ -83,22 +84,22 @@ if (video && perguntas) {
 
             respostas: {
                 A: {
-                    tempo: 7,
+                    tempo: 10,
                     proxima: 1
                 },
 
                 B: {
-                    tempo: 7,
+                    tempo: 10,
                     proxima: 1
                 },
 
                 C: {
-                    tempo: 7,
+                    tempo: 10,
                     proxima: 1
                 },
 
                 D: {
-                    tempo: 7,
+                    tempo: 10,
                     proxima: 1
                 }
             }
@@ -107,7 +108,7 @@ if (video && perguntas) {
 
         // PERGUNTA 2
         {
-            pararEm: 33,
+            pararEm: 39,
 
             botoes: {
                 A: "4",
@@ -118,17 +119,17 @@ if (video && perguntas) {
 
             respostas: {
                 A: {
-                    tempo: 34,
+                    tempo: 40,
                     proxima: 2
                 },
 
                 B: {
-                    tempo: 34,
+                    tempo: 40,
                     proxima: 2
                 },
 
                 C: {
-                    tempo: 45,
+                    tempo: 54,
                     proxima: 3
                 },
 
@@ -142,7 +143,7 @@ if (video && perguntas) {
 
         // PERGUNTA 3
         {
-            pararEm: 44,
+            pararEm: 53,
 
             botoes: {
                 A: "4",
@@ -153,17 +154,17 @@ if (video && perguntas) {
 
             respostas: {
                 A: {
-                    tempo: 34,
+                    tempo: 40,
                     proxima: 2
                 },
 
                 B: {
-                    tempo: 34,
+                    tempo: 40,
                     proxima: 2
                 },
 
                 C: {
-                    tempo: 45,
+                    tempo: 54,
                     proxima: 3
                 },
 
@@ -177,7 +178,7 @@ if (video && perguntas) {
 
         // PERGUNTA 4
         {
-            pararEm: 60,
+            pararEm: 72.5,
 
             botoes: {
                 A: "3",
@@ -188,17 +189,17 @@ if (video && perguntas) {
 
             respostas: {
                 A: {
-                    tempo: 71,
+                    tempo: 88,
                     proxima: 5
                 },
 
                 B: {
-                    tempo: 61,
+                    tempo: 73,
                     proxima: 4
                 },
 
                 C: {
-                    tempo: 61,
+                    tempo: 73,
                     proxima: 4
                 },
 
@@ -210,7 +211,7 @@ if (video && perguntas) {
         },
 
         {
-            pararEm: 70,
+            pararEm: 87,
 
             botoes: {
                 A: "3",
@@ -221,17 +222,17 @@ if (video && perguntas) {
 
             respostas: {
                 A: {
-                    tempo: 71,
+                    tempo: 88,
                     proxima: 5
                 },
 
                 B: {
-                    tempo: 61,
+                    tempo: 73,
                     proxima: 4
                 },
 
                 C: {
-                    tempo: 61,
+                    tempo: 73,
                     proxima: 4
                 },
 
@@ -243,7 +244,7 @@ if (video && perguntas) {
         },
 
         {
-            pararEm: 128,
+            pararEm: 143,
 
             botoes: {
                 A: "8/5",
@@ -254,18 +255,249 @@ if (video && perguntas) {
 
             respostas: {
                 A: {
-                    tempo: 129,
+                    tempo: 144,
                     proxima: 6
                 },
 
                 B: {
-                    tempo: 129,
+                    tempo: 144,
                     proxima: 6
                 },
 
                 C: {
-                    tempo: 129,
+                    tempo: 181,
+                    proxima: 7
+                },
+
+                D: {
+                    tempo: 61,
+                    proxima: 4
+                }
+            }
+        },
+
+        {
+            pararEm: 179,
+
+            botoes: {
+                A: "8/5",
+                B: "3/8",
+                C: "5/8",
+                D: ""
+            },
+
+            respostas: {
+                A: {
+                    tempo: 144,
                     proxima: 6
+                },
+
+                B: {
+                    tempo: 144,
+                    proxima: 6
+                },
+
+                C: {
+                    tempo: 181,
+                    proxima: 7
+                },
+
+                D: {
+                    tempo: 61,
+                    proxima: 4
+                }
+            }
+        },
+
+        {
+            pararEm: 188,
+
+            botoes: {
+                A: "Cinco oito avos",
+                B: "Cinco oito",
+                C: "Cinco oitavos",
+                D: ""
+            },
+
+            respostas: {
+                A: {
+                    tempo: 189,
+                    proxima: 8
+                },
+
+                B: {
+                    tempo: 189,
+                    proxima: 8
+                },
+
+                C: {
+                    tempo: 217,
+                    proxima: 9
+                },
+
+                D: {
+                    tempo: 61,
+                    proxima: 4
+                }
+            }
+        },
+
+        {
+            pararEm: 216,
+
+            botoes: {
+                A: "Cinco oito avos",
+                B: "Cinco oito",
+                C: "Cinco oitavos",
+                D: ""
+            },
+
+            respostas: {
+                A: {
+                    tempo: 189,
+                    proxima: 8
+                },
+
+                B: {
+                    tempo: 189,
+                    proxima: 8
+                },
+
+                C: {
+                    tempo: 217,
+                    proxima: 9
+                },
+
+                D: {
+                    tempo: 61,
+                    proxima: 4
+                }
+            }
+        },
+
+        {
+            pararEm: 240,
+
+            botoes: {
+                A: "1",
+                B: "3",
+                C: "4",
+                D: ""
+            },
+
+            respostas: {
+                A: {
+                    tempo: 241,
+                    proxima: 10
+                },
+
+                B: {
+                    tempo: 241,
+                    proxima: 10
+                },
+
+                C: {
+                    tempo: 259,
+                    proxima: 11
+                },
+
+                D: {
+                    tempo: 61,
+                    proxima: 4
+                }
+            }
+        },
+
+        {
+            pararEm: 258,
+
+            botoes: {
+                A: "1",
+                B: "3",
+                C: "4",
+                D: ""
+            },
+
+            respostas: {
+                A: {
+                    tempo: 241,
+                    proxima: 10
+                },
+
+                B: {
+                    tempo: 241,
+                    proxima: 10
+                },
+
+                C: {
+                    tempo: 259,
+                    proxima: 11
+                },
+
+                D: {
+                    tempo: 61,
+                    proxima: 4
+                }
+            }
+        },
+        
+        {
+            pararEm: 275.5,
+
+            botoes: {
+                A: "Três quatro",
+                B: "Três quartos",
+                C: "Três quatro avos",
+                D: ""
+            },
+
+            respostas: {
+                A: {
+                    tempo: 276,
+                    proxima: 11
+                },
+
+                B: {
+                    tempo: 309,
+                    proxima: 12
+                },
+
+                C: {
+                    tempo: 276,
+                    proxima: 11
+                },
+
+                D: {
+                    tempo: 61,
+                    proxima: 4
+                }
+            }
+        },
+
+        {
+            pararEm: 308.5,
+
+            botoes: {
+                A: "Três quatro",
+                B: "Três quartos",
+                C: "Três quatro avos",
+                D: ""
+            },
+
+            respostas: {
+                A: {
+                    tempo: 276,
+                    proxima: 11
+                },
+
+                B: {
+                    tempo: 309,
+                    proxima: 12
+                },
+
+                C: {
+                    tempo: 276,
+                    proxima: 11
                 },
 
                 D: {
@@ -275,6 +507,7 @@ if (video && perguntas) {
             }
         }
     ];
+
 
 
 
@@ -291,19 +524,37 @@ if (video && perguntas) {
     // ATUALIZA OS BOTÕES
     // ========================================
 
-    function atualizarBotoes(pergunta) {
+    function formatarResposta(valor) {
+        // Verifica se é uma fração, como 8/5
+        if (typeof valor === "string" && /^\d+\/\d+$/.test(valor.trim())) {
+            const [numerador, denominador] = valor.trim().split("/");
 
-        buttonA.textContent = pergunta.botoes.A;
-        buttonB.textContent = pergunta.botoes.B;
-        buttonC.textContent = pergunta.botoes.C;
-        buttonD.textContent = pergunta.botoes.D;
+            return `
+            <span class="inline-flex flex-col items-center justify-center leading-none">
+                <span class="border-b-2 border-current px-1">
+                    ${numerador}
+                </span>
+                <span class="px-1">
+                    ${denominador}
+                </span>
+            </span>
+        `;
+        }
+
+        return valor;
+    }
+
+    function atualizarBotoes(pergunta) {
+        buttonA.innerHTML = formatarResposta(pergunta.botoes.A);
+        buttonB.innerHTML = formatarResposta(pergunta.botoes.B);
+        buttonC.innerHTML = formatarResposta(pergunta.botoes.C);
+        buttonD.innerHTML = formatarResposta(pergunta.botoes.D);
 
         if (perguntaAtual === 0) {
             botaoD.classList.remove("hidden");
         } else {
             botaoD.classList.add("hidden");
         }
-
     }
 
 
@@ -329,17 +580,12 @@ if (video && perguntas) {
 
 
         if (video.currentTime >= pergunta.pararEm) {
-
-            // Para o vídeo
             video.pause();
 
-            // Muda os textos dos 4 botões
             atualizarBotoes(pergunta);
 
-            // Mostra as perguntas
             perguntas.classList.remove("hidden");
 
-            // Ativa a pergunta
             perguntaAtiva = true;
         }
 
