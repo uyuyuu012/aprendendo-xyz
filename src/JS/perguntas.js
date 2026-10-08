@@ -1,7 +1,6 @@
-
- // ============================================================
- // SCRIPT GENÉRICO - TEXTO COM BOTÕES
- // ============================================================
+// ============================================================
+// SCRIPT GENÉRICO - TEXTO COM BOTÕES
+// ============================================================
 
 const configuracao = window.textoConfig || {};
 const etapas = configuracao.etapas || [];
@@ -23,228 +22,110 @@ const botaoB = document.getElementById("botao-b");
 const botaoC = document.getElementById("botao-c");
 const botaoD = document.getElementById("botao-d");
 
+
 // ============================================================
-// CONTROLE
+// SCRIPT GENÉRICO - TEXTO COM BOTÕES
 // ============================================================
 
 let etapaAtual = 0;
 
 // ============================================================
-// FORMATA FRAÇÕES
+// MOSTRAR ETAPA
 // ============================================================
 
-function formatarTexto(valor) {
-    if (valor === undefined || valor === null) {
-        return "";
+function mostrarEtapa(indice) {
+    const configuracao = window.textoConfig;
+
+    if (!configuracao || !configuracao.etapas) {
+        console.error("A configuração textoConfig não foi encontrada.");
+        return;
     }
 
-    if (
-        typeof valor === "string" &&
-        /^\d+\/\d+$/.test(valor.trim())
-    ) {
-        const [numerador, denominador] =
-            valor.trim().split("/");
+    const etapa = configuracao.etapas[indice];
 
-        return `
-            <span class="inline-flex flex-col items-center justify-center leading-none">
-                <span class="border-b-2 border-current px-1">
-                    ${numerador}
-                </span>
-                <span class="px-1">
-                    ${denominador}
-                </span>
-            </span>
-        `;
+    if (!etapa) {
+        console.error("Etapa não encontrada:", indice);
+        return;
     }
 
-    return valor;
-}
+    const texto = document.getElementById("texto-perguntas");
 
-// ============================================================
-// AJUSTA TAMANHO DA FONTE
-// ============================================================
-
-function ajustarTamanhoFonte(elemento) {
-    if (!elemento) return;
-
-    elemento.classList.remove(
-        "text-lg",
-        "text-xl",
-        "text-2xl",
-        "text-3xl",
-        "md:text-xl",
-        "md:text-2xl",
-        "md:text-3xl"
-    );
-
-    const caracteres = elemento.textContent.trim().length;
-
-    if (caracteres > 50) {
-        elemento.classList.add("text-lg", "md:text-xl");
-    } else if (caracteres > 15) {
-        elemento.classList.add("text-xl", "md:text-2xl");
-    } else {
-        elemento.classList.add("text-2xl", "md:text-3xl");
+    if (!texto) {
+        console.error(
+            'O elemento com id="texto-perguntas" não foi encontrado.'
+        );
+        return;
     }
 
-    elemento.classList.add("text-white");
-}
+    etapaAtual = indice;
+    texto.innerHTML = etapa.texto;
 
-function ajustarFonte() {
-    ajustarTamanhoFonte(buttonA);
-    ajustarTamanhoFonte(buttonB);
-    ajustarTamanhoFonte(buttonC);
-    ajustarTamanhoFonte(buttonD);
-}
-
-window.ajustarFonte = ajustarFonte;
-
-// ============================================================
-// EMBARALHA AS RESPOSTAS
-// ============================================================
-
-function embaralharRespostas(etapa) {
     const letras = ["A", "B", "C", "D"];
 
-    const disponiveis = letras.filter(function (letra) {
-        return (
-            etapa.botoes?.[letra] !== undefined &&
-            etapa.botoes[letra] !== "" &&
-            etapa.botoes[letra] !== null &&
-            etapa["mostrar" + letra] !== false &&
-            etapa.respostas?.[letra] !== undefined
+    letras.forEach(function (letra) {
+        const botao = document.getElementById(
+            "botao-" + letra.toLowerCase()
         );
+
+        const conteudo = document.getElementById(
+            "btn-" + letra.toLowerCase()
+        );
+
+        if (!botao || !conteudo) {
+            console.error("Elemento do botão", letra, "não encontrado.");
+            return;
+        }
+
+        const propriedadeMostrar = "mostrar" + letra;
+
+        const mostrar =
+            etapa[propriedadeMostrar] !== false &&
+            etapa.botoes &&
+            etapa.botoes[letra] !== undefined;
+
+        botao.style.display = mostrar ? "" : "none";
+
+        if (mostrar) {
+            conteudo.innerHTML = etapa.botoes[letra];
+        } else {
+            conteudo.innerHTML = "";
+        }
     });
-
-    for (let i = disponiveis.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-
-        [disponiveis[i], disponiveis[j]] =
-            [disponiveis[j], disponiveis[i]];
-    }
-
-    return disponiveis;
 }
 
 // ============================================================
-// RESPONDE E AVANÇA PARA A ETAPA CONFIGURADA
+// RESPONDER
 // ============================================================
 
-function responder(letra) {
-    const etapa = etapas[etapaAtual];
+window.responder = function (letra) {
+    const configuracao = window.textoConfig;
 
-    if (!etapa || !etapa.respostas) return;
+    if (!configuracao || !configuracao.etapas) {
+        console.error("A configuração das perguntas não foi encontrada.");
+        return;
+    }
+
+    const etapa = configuracao.etapas[etapaAtual];
+
+    if (!etapa || !etapa.respostas) {
+        console.error("As respostas desta etapa não foram encontradas.");
+        return;
+    }
 
     const resposta = etapa.respostas[letra];
 
     if (!resposta || resposta.proxima === undefined) {
-        console.error(
-            "Resposta sem destino configurado:",
-            letra,
-            "Etapa:",
-            etapaAtual
-        );
+        console.error("Resposta sem próxima etapa:", letra);
         return;
     }
 
-    const destino = Number(resposta.proxima);
-
-    if (
-        !Number.isInteger(destino) ||
-        destino < 0 ||
-        destino >= etapas.length
-    ) {
-        console.error(
-            "Índice de destino inválido:",
-            destino,
-            "Etapa atual:",
-            etapaAtual
-        );
-        return;
-    }
-
-    mostrarEtapa(destino);
-}
-
-// Permite utilizar responder em outras partes do projeto.
-window.responder = responder;
+    mostrarEtapa(resposta.proxima);
+};
 
 // ============================================================
-// MOSTRA UMA ETAPA
+// INICIALIZAÇÃO
 // ============================================================
 
-function mostrarEtapa(numero) {
-    const etapa = etapas[numero];
-
-    if (!etapa) {
-        console.error("Etapa não encontrada:", numero);
-        return;
-    }
-
-    etapaAtual = numero;
-
-    // Atualiza o texto ou conteúdo da etapa.
-    if (texto) {
-        texto.innerHTML = etapa.texto || "";
-    }
-
-    const respostasEmbaralhadas = embaralharRespostas(etapa);
-
-    const botoes = [
-        { letra: "A", botao: buttonA, container: botaoA },
-        { letra: "B", botao: buttonB, container: botaoB },
-        { letra: "C", botao: buttonC, container: botaoC },
-        { letra: "D", botao: buttonD, container: botaoD }
-    ];
-
-    // Limpa os botões da etapa anterior.
-    botoes.forEach(function (item) {
-        if (item.container) {
-            item.container.classList.add("hidden");
-        }
-
-        if (item.botao) {
-            item.botao.onclick = null;
-            item.botao.innerHTML = "";
-        }
-    });
-
-    // Coloca cada resposta em uma posição embaralhada.
-    respostasEmbaralhadas.forEach(function (letraOriginal, indice) {
-        const destino = botoes[indice];
-
-        if (!destino || !destino.botao || !destino.container) {
-            return;
-        }
-
-        destino.botao.innerHTML =
-            formatarTexto(etapa.botoes[letraOriginal]);
-
-        // Usa a letra original, mesmo depois do embaralhamento.
-        destino.botao.onclick = function (evento) {
-            evento?.preventDefault();
-            responder(letraOriginal);
-        };
-
-        destino.container.classList.remove("hidden");
-    });
-
-    if (perguntas) {
-        perguntas.classList.remove("hidden");
-    }
-
-    ajustarFonte();
-}
-
-// ============================================================
-// INICIALIZA
-// ============================================================
-
-if (texto && perguntas && etapas.length > 0) {
+document.addEventListener("DOMContentLoaded", function () {
     mostrarEtapa(0);
-} else {
-    console.error(
-        "Não foi possível iniciar: confira os elementos HTML " +
-        "e se textoConfig possui etapas."
-    );
-}
+});
