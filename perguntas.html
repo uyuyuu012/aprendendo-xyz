@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="overscroll-x-none bg-white min-h-screen">
+    <header class="flex flex-wrap items-baseline p-5 md:p-10">
+
+        <!-- Logo -->
+        <div
+            class="w-24 h-24 md:w-32 md:h-32 bg-yellow-400 border-4 border-[#303638] rounded-[20px] rotate-[-5deg] flex items-center justify-center">
+            <i class="fa-solid fa-graduation-cap text-[#303638] text-3xl md:text-4xl rotate-[5deg]"></i>
+        </div>
+
+        <!-- Nome -->
+        <h1 class="text-[#ed3945] text-2xl md:text-4xl font-bold mt-5 flex justify-baseline pl-5 md:pl-9">
+            Aprendendo XYZ - Aula 1
+        </h1>
+
+    </header>
+
+
+
+    <section id="perguntas" class="bg-red-100 mx-auto w-full md:w-1/2 flex flex-col items-center gap-6 p-5">
+        <h1 id="texto-perguntas">
+            Texto exemplo
+        </h1>
+        <div class="w-full flex flex-col md:flex-row items-center justify-center gap-4">
+            <button id="botao-a" onclick="responder('A')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-a" class="text-xl md:text-2xl text-white">
+                    A
+                </h1>
+            </button>
+
+            <button id="botao-b" onclick="responder('B')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-b" class="text-xl md:text-2xl text-white">
+                    B
+                </h1>
+            </button>
+
+            <button id="botao-c" onclick="responder('C')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-c" class="text-xl md:text-2xl text-white">
+                    C
+                </h1>
+            </button>
+
+            <button id="botao-d" onclick="responder('D')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-d" oncanplay="ajustarFonte()" class="text-xl md:text-2xl text-white">
+                    D
+                </h1>                
+            </button>
+        </div>
+
+        
+
+    </section>
+
+    <script>
+
+        window.textoConfig = {
+
+            etapas: [
+
+                {
+                    texto: ` <p class="text-2xl">1. Qual desses sólidos geométricos é a figura “intrometida”?</p>
+                            <img src="./src/IMG/WhatsApp Image 2026-09-22 at 12.56.48.png" class="mx-auto max-w-full h-auto">`,
+
+                    botoes: {
+                        A: '<img src="./src/IMG/WhatsApp2 Image 2026-09-22 at 12.56.48.jpg" class="w-full h-full object-contain">',
+                        B: '<img src="./src/IMG/WhatsApp3 Image 2026-09-22 at 12.56.48.png" class="w-full h-full object-contain">',
+                        C: '<img src="./src/IMG/WhatsApp4 Image 2026-09-22 at 12.56.48.png" class="w-full h-full object-contain">',
+                        D: '<img src="./src/IMG/WhatsApp5 Image 2026-09-22 at 12.56.48.png" class="w-full h-full object-contain">'
+                    },
+
+                    respostas: {
+
+                        A: {
+                            proxima: 1
+                        },
+
+                        B: {
+                            proxima: 1
+                        },
+
+                        C: {
+                            proxima: 1
+                        },
+
+                        D: {
+                            proxima: 2
+                        }
+
+                    }
+                },
+
+
+                {
+                    texto: '<p class="text-2xl"> Nessa atividade a “figura intrometida” é aquela que não apresenta características comuns aos demais sólidos geométricos. Observe que temos um cone, uma esfera, um cilindro e um prisma de base pentagonal. O cone, a esfera e o cilindro são chamados corpos redondos, pois possuem pelo menos uma superfície curva e o prisma é um poliedro pois possui apenas faces planas. Por isso, o prisma é a “figura intrometida</p>',
+
+                    botoes: {
+                        A: '<img src="./src/IMG/WhatsApp2 Image 2026-09-22 at 12.56.48.jpg" class="w-full h-full object-contain">',
+                        B: '<img src="./src/IMG/WhatsApp3 Image 2026-09-22 at 12.56.48.png" class="w-full h-full object-contain">',
+                        C: '<img src="./src/IMG/WhatsApp4 Image 2026-09-22 at 12.56.48.png" class="w-full h-full object-contain">',
+                        D: '<img src="./src/IMG/WhatsApp5 Image 2026-09-22 at 12.56.48.png" class="w-full h-full object-contain">'
+                    },
+
+                    respostas: {
+
+                        A: {
+                            proxima: 1
+                        },
+
+                        B: {
+                            proxima: 1
+                        },
+
+                        C: {
+                            proxima: 1
+                        },
+                        D: {
+                            proxima: 2
+                        }
+
+                    },
+
+                },
+
+
+                {
+                    texto: ` <p class="text-2xl"> Isso mesmo! A “figura intrometida” é aquela que não apresenta características comuns aos demais sólidos geométricos. O cone, a esfera e o cilindro são chamados corpos redondos, pois possuem pelo menos uma superfície curva e o prisma é um poliedro pois possui apenas faces planas. Por isso, o prisma é a “figura intrometida”.</p>
+                            `,
+
+                    botoes: {
+                        A: 'Próxima pergunta'
+                    },
+
+                    respostas: {
+
+                        A: {
+                            proxima: 3
+                        }
+
+                    },
+                    mostrarB: false,
+                    mostrarC: false,
+                    mostrarD: false
+
+                },
+
+
+                {
+                    texto: ` <p class="text-2xl">2. Qual desses sólidos geométricos é a figura “intrometida”?</p>
+                            <img src="./src/IMG/WhatsApp Image 2026-09-22 at 12.57.05.jpeg" class="mx-auto max-w-full h-auto">`,
+
+                    botoes: {
+                        A: '<img src="./src/IMG/WhatsApp6 Image 2026-09-22 at 12.57.05.png" class="w-full h-full object-contain">',
+                        B: '<img src="./src/IMG/WhatsApp7 Image 2026-09-22 at 12.57.05.png" class="w-full h-full object-contain">',
+                        C: '<img src="./src/IMG/WhatsApp8 Image 2026-09-22 at 12.57.05.png" class="w-full h-full object-contain">',
+                        D: '<img src="./src/IMG/WhatsApp9 Image 2026-09-22 at 12.57.05.jpg" class="w-full h-full object-contain">'
+                    },
+
+                    respostas: {
+
+                        A: {
+                            proxima: 4
+                        },
+
+                        B: {
+                            proxima: 4
+                        },
+
+                        C: {
+                            proxima: 5
+                        },
+                        D: {
+                            proxima: 4
+                        }
+
+                    },
+                },
+
+
+                {
+                    texto: '<p class="text-2xl"> Nessa atividade a “figura intrometida” é aquela que não apresenta características comuns aos demais sólidos geométricos. Observe que temos um cone, uma esfera, um cilindro e um prisma de base pentagonal. O cone, a esfera e o cilindro são chamados corpos redondos, pois possuem pelo menos uma superfície curva e o prisma é um poliedro pois possui apenas faces planas. Por isso, o prisma é a “figura intrometida</p>',
+
+                    botoes: {
+                        A: '<img src="./src/IMG/WhatsApp6 Image 2026-09-22 at 12.57.05.png" class="w-full h-full object-contain">',
+                        B: '<img src="./src/IMG/WhatsApp7 Image 2026-09-22 at 12.57.05.png" class="w-full h-full object-contain">',
+                        C: '<img src="./src/IMG/WhatsApp8 Image 2026-09-22 at 12.57.05.png" class="w-full h-full object-contain">',
+                        D: '<img src="./src/IMG/WhatsApp9 Image 2026-09-22 at 12.57.05.jpg" class="w-full h-full object-contain">'
+                    },
+
+                    respostas: {
+
+                        A: {
+                            proxima: 4
+                        },
+
+                        B: {
+                            proxima: 4
+                        },
+
+                        C: {
+                            proxima: 5
+                        },
+                        D: {
+                            proxima: 4
+                        }
+
+                    },
+
+
+                },
+
+
+                {
+                    texto: '<p class="text-2xl"> Observe as planificações e descubra qual delas corresponde à planificação de um cubo.</p> <img src="./src/IMG/WhatsApp Image 2026-09-22 at 12.57.13.jpeg" class="mx-auto max-w-full h-auto">',
+
+                    botoes: {
+                        A: '<img src="./src/IMG/WhatsApp10 Image 2026-09-22 at 12.57.13.png" class="w-full h-full object-contain">',
+                        B: '<img src="./src/IMG/WhatsApp11 Image 2026-09-22 at 12.57.13.jpg" class="w-full h-full object-contain">',
+                        C: '<img src="./src/IMG/WhatsApp12 Image 2026-09-22 at 12.57.13.png" class="w-full h-full object-contain">',
+                        D: '<img src="./src/IMG/WhatsApp13 Image 2026-09-22 at 12.57.13.png" class="w-full h-full object-contain">'
+                    },
+
+                    respostas: {
+
+                        A: {
+                            proxima: 6
+                        },
+
+                        B: {
+                            proxima: 6
+                        },
+
+                        C: {
+                            proxima: 7
+                        },
+                        D: {
+                            proxima: 6
+                        }
+
+                    },
+
+
+                },
+
+                {
+                    texto: '<p class="text-2xl"> Nessa atividade a “figura intrometida” é aquela que não apresenta características comuns aos demais sólidos geométricos. Observe que temos um cone, uma esfera, um cilindro e um prisma de base pentagonal. O cone, a esfera e o cilindro são chamados corpos redondos, pois possuem pelo menos uma superfície curva e o prisma é um poliedro pois possui apenas faces planas. Por isso, o prisma é a “figura intrometida</p>',
+
+                    botoes: {
+                        A: '<img src="./src/IMG/WhatsApp10 Image 2026-09-22 at 12.57.13.png" class="w-full h-full object-contain">',
+                        B: '<img src="./src/IMG/WhatsApp11 Image 2026-09-22 at 12.57.13.jpg" class="w-full h-full object-contain">',
+                        C: '<img src="./src/IMG/WhatsApp12 Image 2026-09-22 at 12.57.13.png" class="w-full h-full object-contain">',
+                        D: '<img src="./src/IMG/WhatsApp13 Image 2026-09-22 at 12.57.13.png" class="w-full h-full object-contain">'
+                    },
+
+                    respostas: {
+
+                        A: {
+                            proxima: 6
+                        },
+
+                        B: {
+                            proxima: 6
+                        },
+
+                        C: {
+                            proxima: 7
+                        },
+                        D: {
+                            proxima: 6
+                        }
+
+                    },
+
+
+                }
+
+            ]
+
+        };
+
+    </script>
+
+
+    <script src="./src/JS/perguntas.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="overscroll-x-none bg-white min-h-screen">
+    <header class="flex flex-wrap items-baseline p-5 md:p-10">
+
+        <!-- Logo -->
+        <div
+            class="w-24 h-24 md:w-32 md:h-32 bg-yellow-400 border-4 border-[#303638] rounded-[20px] rotate-[-5deg] flex items-center justify-center">
+            <i class="fa-solid fa-graduation-cap text-[#303638] text-3xl md:text-4xl rotate-[5deg]"></i>
+        </div>
+
+        <!-- Nome -->
+        <h1 class="text-[#ed3945] text-2xl md:text-4xl font-bold mt-5 flex justify-baseline pl-5 md:pl-9">
+            Aprendendo XYZ - Aula 1
+        </h1>
+
+    </header>
+
+    <section id="video" class="mx-auto w-full md:w-1/2 flex flex-col items-center gap-6 p-5">
+
+        <!-- VÍDEO -->
+        <video id="meuVideo" preload="auto" class="w-full rounded-lg shadow-lg" autoplay controls>
+            <source src="./src/IMG/WhatsApp Video 2026-10-01 at 14.51.27.mp4" type="video/mp4">
+        </video>
+        <div id="perguntas" class="hidden w-full flex flex-row items-center justify-center gap-4">
+
+            <button id="botao-a" onclick="responder('A')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-a" class="text-xl md:text-2xl text-white">
+                    A
+                </h1>
+            </button>
+
+            <button id="botao-b" onclick="responder('B')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-b" class="text-xl md:text-2xl text-white">
+                    B
+                </h1>
+            </button>
+
+            <button id="botao-c" onclick="responder('C')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-c" class="text-xl md:text-2xl text-white">
+                    C
+                </h1>
+            </button>
+
+            <button id="botao-d" onclick="responder('D')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-d" oncanplay="ajustarFonte()" class="text-xl md:text-2xl text-white">
+                    D
+                </h1>
+            </button>
+
+        </div>
+    </section>
+
+    <script>
+        window.videoConfig = {
+            perguntas: [
+
+                // PERGUNTA 1
+                {
+                    pararEm: 29.5,
+
+                    botoes: {
+                        A: "Poliedros – cubo, cilindro e bloco retangular Corpos redondos – cone, esfera e pirâmides",
+                        B: "Poliedros – pirâmides, cilindro e bloco retangular Corpos redondos – cone, esfera e cubo",
+                        C: "Poliedros – cubo, bloco retangular e pirâmides Corpos redondos – cilindro, cone e esfera.",
+                        D: ""
+                    },
+
+                    mostrarD: false,
+
+                    respostas: {
+                        A: {
+                            tempo: 31,
+                            proxima: 1
+                        },
+
+                        B: {
+                            tempo: 31,
+                            proxima: 1
+                        },
+
+                        C: {
+                            tempo: 48,
+                            proxima: 2
+                        }
+                    }
+                },
+                {
+                    pararEm: 47,
+
+                    botoes: {
+                        A: "Poliedros – cubo, cilindro e bloco retangular Corpos redondos – cone, esfera e pirâmides",
+                        B: "Poliedros – pirâmides, cilindro e bloco retangular Corpos redondos – cone, esfera e cubo",
+                        C: "Poliedros – cubo, bloco retangular e pirâmides Corpos redondos – cilindro, cone e esfera.",
+                        D: ""
+                    },
+
+
+                    mostrarD: false,
+
+                    respostas: {
+                        A: {
+                            tempo: 31,
+                            proxima: 1
+                        },
+
+                        B: {
+                            tempo: 31,
+                            proxima: 1
+                        },
+
+                        C: {
+                            tempo: 48,
+                            proxima: 2
+                        }
+                    }
+                },
+                {
+                    pararEm: 76.5,
+
+                    botoes: {
+                        A: "Voltar para o começo",
+                        B: "Ir para as perguntas"
+                    },
+
+                    mostrarB: true,
+                    mostrarC: false,
+                    mostrarD: false,
+
+                    voltarInicio: true,
+
+                    respostas: {
+                        A: { tempo: 0, proxima: 0 },
+                        B: { pagina: "videopergunta.html" }
+                    }
+                }
+
+            ]
+        };
+
+        window.addEventListener("resize", function () {
+
+            if (typeof ajustarLayoutBotoes === "function") {
+
+                ajustarLayoutBotoes();
+
+            }
+
+        });
+    </script>
+
+    <script src="./src/JS/script.js"></script>
+
+</body>
+
+</html>

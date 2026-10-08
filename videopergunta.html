@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="overscroll-x-none bg-white min-h-screen">
+
+    <header class="flex flex-wrap items-baseline p-5 md:p-10">
+        <div
+            class="w-24 h-24 md:w-32 md:h-32 bg-yellow-400 border-4 border-[#303638] rounded-[20px] rotate-[-5deg] flex items-center justify-center">
+            <i class="fa-solid fa-graduation-cap text-[#303638] text-3xl md:text-4xl rotate-[5deg]"></i>
+        </div>
+
+        <h1 class="text-[#ed3945] text-2xl md:text-4xl font-bold mt-5 flex justify-baseline pl-5 md:pl-9">
+            Aprendendo XYZ - Atividades Guiadas
+        </h1>
+    </header>
+
+    <section id="video" class="mx-auto w-full md:w-1/2 flex flex-col items-center gap-6 p-5">
+
+        <div id="containerVideos" class="w-full">
+
+            <!-- VÍDEO ATUAL -->
+            <video id="meuVideo" class="w-full rounded-lg shadow-lg" preload="auto" controls playsinline>
+                <source src="./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05.mp4" type="video/mp4">
+                Seu navegador não suporta a reprodução de vídeos.
+            </video>
+
+            <!-- PRÓXIMO VÍDEO -->
+            <video id="proximoVideo" class="hidden w-full rounded-lg shadow-lg" preload="auto" controls playsinline>
+                <source src="./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4" type="video/mp4">
+                Seu navegador não suporta a reprodução de vídeos.
+            </video>
+
+        </div>
+
+        <div id="perguntas" class="hidden w-full flex flex-row items-center justify-center gap-4">
+
+            <button id="botao-a" onclick="responder('A')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-a" class="text-xl md:text-2xl text-white">A</h1>
+            </button>
+
+            <button id="botao-b" onclick="responder('B')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-b" class="text-xl md:text-2xl text-white">B</h1>
+            </button>
+
+            <button id="botao-c" onclick="responder('C')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-c" class="text-xl md:text-2xl text-white">C</h1>
+            </button>
+
+            <button id="botao-d" onclick="responder('D')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-d" class="text-xl md:text-2xl text-white">D</h1>
+            </button>
+
+        </div>
+    </section>
+
+    <script>
+        window.videoConfig = {
+            perguntas: [
+
+                {
+                    tipo: "video",
+                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05.mp4",
+                    pararEm: 3.5,
+                    pergunta: "Pergunta 0",
+                    botoes: {
+                        A: "Resposta A",
+                        B: "Resposta B",
+                        C: "Rsposta C",
+                        D: "Resposta B"
+                    },
+
+                    respostas: {
+                        A: {
+                            correta: true,
+                            tempo: 35,
+                            proxima: 2
+                        },
+                        B: {
+                            correta: false,
+                            tempo: 4,
+                            proxima: 1
+                        },
+                        C: {
+                            correta: false,
+                            tempo: 4,
+                            proxima: 1
+                        },
+                        D: {
+                            correta: false,
+                            tempo: 4,
+                            proxima: 1
+                        }
+                    }
+                },
+
+                {
+                    tipo: "video",
+                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05.mp4",
+                    pararEm: 33,
+                    pergunta: "Pergunta 1",
+
+                    botoes: {
+                        A: "Voltar",
+                        B: "Proxima"
+                    },
+
+                    mostrarC: false,
+                    mostrarD: false,
+
+                    respostas: {
+                        A: {
+                            correta: false,
+                            tempo: 0,
+                            proxima: 0,
+                            voltarInicio: true
+                        },
+
+                        B: {
+                            correta: true,
+                            tempo: 57,
+                            proxima: 2
+                        }
+                    }
+                },
+
+                {
+                    tipo: "video",
+                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05.mp4",
+                    pararEm: 63,
+                    pergunta: "Pergunta 2",
+                    botoes: {
+                        A: "Resposta A",
+                        B: "Resposta B",
+                        C: "Rsposta C",
+                        D: "Resposta B"
+                    },
+                    mostrarC: true,
+                    mostrarD: true,
+
+                    respostas: {
+                        A: {
+                            correta: true,
+                            tempo: 64,
+                            proxima: 3
+                        },
+                        B: {
+                            correta: false,
+                            tempo: 64,
+                            proxima: 3
+                        },
+                        C: {
+                            correta: false,
+                            tempo: 107,
+                            proxima: 4
+                        },
+                        D: {
+                            correta: false,
+                            tempo: 64,
+                            proxima: 3
+                        }
+                    }
+                },
+
+                {
+                    tipo: "video",
+                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05.mp4",
+                    pararEm: 106,
+                    pergunta: "Pergunta 3",
+
+                    botoes: {
+                        A: "Voltar",
+                        B: "Proxima"
+                    },
+
+                    mostrarC: false,
+                    mostrarD: false,
+
+                    respostas: {
+                        A: {
+                            correta: false,
+                            tempo: 0,
+                            proxima: 0,
+                            voltarInicio: true
+                        },
+
+                        B: {
+                            correta: true,
+                            tempo: 141,
+                            proxima: 4
+                        }
+                    }
+                },
+
+                {
+                    tipo: "video",
+                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05.mp4",
+                    pararEm: 142,
+                    pergunta: "Pergunta 4",
+
+                    botoes: {
+                        A: "Voltar",
+                        B: "Proxima"
+                    },
+
+                    mostrarC: false,
+                    mostrarD: false,
+
+                    respostas: {
+                        A: {
+                            correta: false,
+                            tempo: 0,
+                            proxima: 0,
+                            voltarInicio: true
+                        },
+
+                        B: {
+                            correta: true,
+                            tempo: 0,
+                            proxima: 5
+                        }
+                    },
+
+                    proximoVideo: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4",
+                    proximaPergunta: 5
+                },
+
+                {
+                    tipo: "video",
+
+                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4",
+
+                    pararEm: 6.5,
+
+                    pergunta: "Pergunta 5",
+
+                    botoes: {
+                        A: "Resposta A",
+                        B: "Resposta B",
+                        C: "Resposta C",
+                        D: "Resposta D"
+                    },
+
+                    mostrarC: true,
+                    mostrarD: true,
+
+                    respostas: {
+                        A: {
+                            correta: true,
+                            tempo: 58,
+                            proxima: 7
+                        },
+
+                        B: {
+                            correta: false,
+                            tempo: 8,
+                            proxima: 6
+                        },
+
+                        C: {
+                            correta: false,
+                            tempo: 8,
+                            proxima: 6
+                        },
+
+                        D: {
+                            correta: false,
+                            tempo: 8,
+                            proxima: 6
+                        }
+                    }
+                },
+                {
+                    tipo: "video",
+                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4",
+                    pararEm: 32,
+                    pergunta: "Pergunta 6",
+
+                    botoes: {
+                        A: "Voltar",
+                        B: "Proxima"
+                    },
+
+                    mostrarC: false,
+                    mostrarD: false,
+
+                    respostas: {
+                        A: {
+                            correta: false,
+                            tempo: 0,
+                            proxima: 0,
+                            voltarInicio: true
+                        },
+
+                        B: {
+                            correta: true,
+                            tempo: 58,
+                            proxima: 7
+                        }
+                    }
+                },
+                {
+                    tipo: "video",
+
+                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4",
+
+                    pararEm: 65,
+
+                    pergunta: "Pergunta 7",
+
+                    botoes: {
+                        A: "Resposta A",
+                        B: "Resposta B",
+                        C: "Resposta C",
+                        D: "Resposta D"
+                    },
+
+                    mostrarC: true,
+                    mostrarD: true,
+
+                    respostas: {
+                        A: {
+                            correta: false,
+                            tempo: 68,
+                            proxima: 8
+                        },
+
+                        B: {
+                            correta: false,
+                            tempo: 68,
+                            proxima: 8
+                        },
+
+                        C: {
+                            correta: false,
+                            tempo: 68,
+                            proxima: 8
+                        },
+
+                        D: {
+                            correta: true,
+                            tempo: 100,
+                            proxima: 9
+                        }
+                    }
+                },
+                {
+                    tipo: "video",
+
+                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4",
+
+                    pararEm: 6,
+
+                    pergunta: "Pergunta 5",
+
+                    botoes: {
+                        A: "Resposta A",
+                        B: "Resposta B",
+                        C: "Resposta C",
+                        D: "Resposta D"
+                    },
+
+                    mostrarC: true,
+                    mostrarD: true,
+
+                    respostas: {
+                        A: {
+                            correta: true,
+                            tempo: 35,
+                            proxima: 7
+                        },
+
+                        B: {
+                            correta: false,
+                            tempo: 7,
+                            proxima: 6
+                        },
+
+                        C: {
+                            correta: false,
+                            tempo: 7,
+                            proxima: 6
+                        },
+
+                        D: {
+                            correta: false,
+                            tempo: 7,
+                            proxima: 6
+                        }
+                    }
+                }
+
+            ]
+        };
+    </script>
+
+    <script src="./src/JS/script.js"></script>
+
+</body>
+
+</html>

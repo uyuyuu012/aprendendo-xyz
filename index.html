@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html class="overscroll-x-none" lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <title>Label - Login</title>
+</head>
+
+<body class="overscroll-x-none bg-white min-h-screen">
+
+    <!-- Cabeçalho -->
+    <header class="flex flex-col items-center pt-6 sm:pt-10 px-4">
+
+        <!-- Logo -->
+        <div class="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40
+                   bg-yellow-400 border-4 border-[#303638]
+                   rounded-[28px] sm:rounded-[35px]
+                   rotate-[-5deg]
+                   flex items-center justify-center">
+
+            <i class="fa-solid fa-graduation-cap
+                       text-[#303638]
+                       text-5xl sm:text-6xl
+                       rotate-[5deg]">
+            </i>
+
+        </div>
+
+        <!-- Nome -->
+        <h1 class="text-[#ed3945]
+                   text-3xl sm:text-4xl
+                   font-bold
+                   mt-4 sm:mt-5
+                   text-center">
+            Aprendendo XYZ
+        </h1>
+
+        <!-- Versão -->
+        <p class="text-[#3379a5]
+                   text-sm sm:text-base
+                   mt-2 sm:mt-4">
+            Versão 1.0
+        </p>
+
+    </header>
+
+
+    <!-- Área de Login -->
+    <main class="mx-4 sm:mx-8
+               mt-8 sm:mt-10
+               pb-10">
+
+        <!-- Card -->
+        <div class="border-[3px] border-[#303638]
+                   rounded-[25px] sm:rounded-[30px]
+                   px-5 py-6
+                   sm:px-8 sm:py-8
+                   shadow-[0_8px_0_0_#303638]
+                   w-full max-w-xl
+                   mx-auto">
+
+            <!-- Título -->
+            <h2 class="text-[#213e68]
+                       text-xl sm:text-2xl
+                       font-semibold
+                       mb-6 sm:mb-7">
+                Bem-vindo!
+            </h2>
+
+
+            <!-- Usuário -->
+            <div class="mb-5 sm:mb-6">
+
+                <label class="block text-center
+                           text-[#3379a5]
+                           font-semibold
+                           mb-2">
+                    Usuário
+                </label>
+
+                <div class="flex items-center
+                           h-12
+                           border border-gray-200
+                           rounded-xl
+                           px-3">
+
+                    <i class="fa-solid fa-user
+                               text-[#213e68]
+                               mr-2">
+                    </i>
+
+                    <input type="text" id="usuario" placeholder="Usuário:" class="w-full
+                               outline-none
+                               text-[#213e68]
+                               placeholder-[#213e68]
+                               bg-transparent
+                               text-sm sm:text-base">
+
+                </div>
+
+            </div>
+
+
+            <!-- Senha -->
+            <div class="mb-6 sm:mb-7">
+
+                <label class="block text-center
+                           text-[#3379a5]
+                           font-semibold
+                           mb-2">
+                    Senha
+                </label>
+
+                <div class="flex items-center
+                           h-12
+                           border border-gray-200
+                           rounded-xl
+                           px-3">
+
+                    <i class="fa-solid fa-lock
+                               text-[#213e68]
+                               mr-2">
+                    </i>
+
+                    <input type="password" id="senha" placeholder="Senha:" class="w-full
+                               outline-none
+                               text-[#213e68]
+                               placeholder-[#213e68]
+                               bg-transparent
+                               text-sm sm:text-base">
+
+                </div>
+
+            </div>
+
+
+            <!-- Botão -->
+            <button onclick="validar()" class="w-full
+                       h-14 sm:h-16
+                       bg-[#55bb8c]
+                       border-[3px] border-[#303638]
+                       rounded-[20px] sm:rounded-[25px]
+                       text-white
+                       font-bold
+                       text-sm sm:text-base
+                       shadow-[0_6px_0_0_#303638]
+                       hover:bg-[#49ad80]
+                       active:translate-y-1
+                       active:shadow-[0_3px_0_0_#303638]
+                       transition">
+
+                ENTRAR
+
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="./src/JS/script.js"></script>
+
+</body>
+
+</html>

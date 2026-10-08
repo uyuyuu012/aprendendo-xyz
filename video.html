@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="overscroll-x-none bg-white min-h-screen">
+    <header class="flex flex-wrap items-baseline p-5 md:p-10">
+
+        <!-- Logo -->
+        <div
+            class="w-24 h-24 md:w-32 md:h-32 bg-yellow-400 border-4 border-[#303638] rounded-[20px] rotate-[-5deg] flex items-center justify-center">
+            <i class="fa-solid fa-graduation-cap text-[#303638] text-3xl md:text-4xl rotate-[5deg]"></i>
+        </div>
+
+        <!-- Nome -->
+        <h1 class="text-[#ed3945] text-2xl md:text-4xl font-bold mt-5 flex justify-baseline pl-5 md:pl-9">
+            Aprendendo XYZ - Aula 1
+        </h1>
+
+    </header>
+
+    <section id="video" class="mx-auto w-full md:w-1/2 flex flex-col items-center gap-6 p-5">
+
+        <!-- VÍDEO -->
+        <video id="meuVideo" preload="auto" class="w-full rounded-lg shadow-lg" autoplay>
+            <source
+                src="https://res.cloudinary.com/bag1vkbc/video/upload/v1788986182/WhatsApp_Video_2026-09-08_at_21.39.34.mp4"
+                type="video/mp4">
+        </video>
+
+
+        <!-- PERGUNTAS -->
+        <div id="perguntas" class="hidden w-full flex flex-row items-center justify-center gap-4">
+
+            <button id="botao-a" onclick="responder('A')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-a" class="text-xl md:text-2xl text-white">
+                    A
+                </h1>
+            </button>
+
+            <button id="botao-b" onclick="responder('B')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-b" class="text-xl md:text-2xl text-white">
+                    B
+                </h1>
+            </button>
+
+            <button id="botao-c" onclick="responder('C')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-c" class="text-xl md:text-2xl text-white">
+                    C
+                </h1>
+            </button>
+
+            <button id="botao-d" onclick="responder('D')"
+                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-d" oncanplay="ajustarFonte()" class="text-xl md:text-2xl text-white">
+                    D
+                </h1>
+            </button>
+
+        </div>
+
+
+    </section>
+
+    <script>
+
+        window.videoConfig = {
+
+            perguntas: [
+
+                // PERGUNTA 1
+                {
+                    pararEm: 9.5,
+
+                    botoes: {
+                        A: "Fração como parte de um inteiro",
+                        B: "Fração como uma divisão",
+                        C: "Fração com uma razão",
+                        D: "Fração como um operador"
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 10,
+                            proxima: 1
+                        },
+
+                        B: {
+                            tempo: 10,
+                            proxima: 1
+                        },
+
+                        C: {
+                            tempo: 323,
+                            proxima: 15
+                        },
+
+                        D: {
+                            tempo: 10,
+                            proxima: 1
+                        }
+                    }
+                },
+
+
+                // PERGUNTA 2
+                {
+                    pararEm: 39,
+
+                    botoes: {
+                        A: "4",
+                        B: "6",
+                        C: "8",
+                        D: ""
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 40,
+                            proxima: 2
+                        },
+
+                        B: {
+                            tempo: 40,
+                            proxima: 2
+                        },
+
+                        C: {
+                            tempo: 54,
+                            proxima: 3
+                        },
+
+                        D: {
+                            tempo: 45,
+                            proxima: 3
+                        }
+                    }
+                },
+
+
+                // PERGUNTA 3
+                {
+                    pararEm: 53,
+
+                    botoes: {
+                        A: "4",
+                        B: "6",
+                        C: "8",
+                        D: ""
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 40,
+                            proxima: 2
+                        },
+
+                        B: {
+                            tempo: 40,
+                            proxima: 2
+                        },
+
+                        C: {
+                            tempo: 54,
+                            proxima: 3
+                        },
+
+                        D: {
+                            tempo: 45,
+                            proxima: 3
+                        }
+                    }
+                },
+
+
+                // PERGUNTA 4
+                {
+                    pararEm: 72.5,
+
+                    botoes: {
+                        A: "3",
+                        B: "5",
+                        C: "8",
+                        D: ""
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 88,
+                            proxima: 5
+                        },
+
+                        B: {
+                            tempo: 73,
+                            proxima: 4
+                        },
+
+                        C: {
+                            tempo: 73,
+                            proxima: 4
+                        },
+
+                        D: {
+                            tempo: 61,
+                            proxima: 4
+                        }
+                    }
+                },
+
+
+                // PERGUNTA 5
+                {
+                    pararEm: 87,
+
+                    botoes: {
+                        A: "3",
+                        B: "5",
+                        C: "8",
+                        D: ""
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 88,
+                            proxima: 5
+                        },
+
+                        B: {
+                            tempo: 73,
+                            proxima: 4
+                        },
+
+                        C: {
+                            tempo: 73,
+                            proxima: 4
+                        },
+
+                        D: {
+                            tempo: 61,
+                            proxima: 4
+                        }
+                    }
+                },
+
+
+                // PERGUNTA 6
+                {
+                    pararEm: 143,
+
+                    botoes: {
+                        A: "8/5",
+                        B: "3/8",
+                        C: "5/8",
+                        D: ""
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 144,
+                            proxima: 6
+                        },
+
+                        B: {
+                            tempo: 144,
+                            proxima: 6
+                        },
+
+                        C: {
+                            tempo: 160,
+                            proxima: 7
+                        },
+
+                        D: {
+                            tempo: 61,
+                            proxima: 4
+                        }
+                    }
+                },
+
+
+                // PERGUNTA 7
+                {
+                    pararEm: 159.5,
+
+                    botoes: {
+                        A: "8/5",
+                        B: "3/8",
+                        C: "5/8",
+                        D: ""
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 144,
+                            proxima: 6
+                        },
+
+                        B: {
+                            tempo: 144,
+                            proxima: 6
+                        },
+
+                        C: {
+                            tempo: 160,
+                            proxima: 7
+                        },
+
+                        D: {
+                            tempo: 61,
+                            proxima: 4
+                        }
+                    }
+                },
+
+
+                // PERGUNTA 8
+                {
+                    pararEm: 188,
+
+                    botoes: {
+                        A: "Cinco oito avos",
+                        B: "Cinco oito",
+                        C: "Cinco oitavos",
+                        D: ""
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 189,
+                            proxima: 8
+                        },
+
+                        B: {
+                            tempo: 189,
+                            proxima: 8
+                        },
+
+                        C: {
+                            tempo: 217,
+                            proxima: 15
+                        },
+
+                        D: {
+                            tempo: 61,
+                            proxima: 4
+                        }
+                    }
+                },
+
+
+                // PERGUNTA 9
+                {
+                    pararEm: 216,
+
+                    botoes: {
+                        A: "Cinco oito avos",
+                        B: "Cinco oito",
+                        C: "Cinco oitavos",
+                        D: ""
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 189,
+                            proxima: 8
+                        },
+
+                        B: {
+                            tempo: 189,
+                            proxima: 8
+                        },
+
+                        C: {
+                            tempo: 217,
+                            proxima: 15
+                        },
+
+                        D: {
+                            tempo: 61,
+                            proxima: 4
+                        }
+                    }
+                },
+
+
+                // PERGUNTA 10
+                {
+                    pararEm: 240,
+
+                    botoes: {
+                        A: "1/4",
+                        B: "3/4",
+                        C: "4/3",
+                        D: ""
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 241,
+                            proxima: 10
+                        },
+
+                        B: {
+                            tempo: 259,
+                            proxima: 11
+                        },
+
+                        C: {
+                            tempo: 259,
+                            proxima: 10
+                        },
+
+                        D: {
+                            tempo: 61,
+                            proxima: 4
+                        }
+                    }
+                },
+
+
+                // PERGUNTA 11
+                {
+                    pararEm: 258,
+
+                    botoes: {
+                        A: "1/4",
+                        B: "3/4",
+                        C: "4/3",
+                        D: ""
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 241,
+                            proxima: 10
+                        },
+
+                        B: {
+                            tempo: 259,
+                            proxima: 11
+                        },
+
+                        C: {
+                            tempo: 259,
+                            proxima: 10
+                        },
+
+                        D: {
+                            tempo: 61,
+                            proxima: 4
+                        }
+                    }
+                },
+
+
+                // PERGUNTA 12
+                {
+                    pararEm: 275.5,
+
+                    botoes: {
+                        A: "Três quatro",
+                        B: "Três quartos",
+                        C: "Três quatro avos",
+                        D: ""
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 276,
+                            proxima: 12
+                        },
+
+                        B: {
+                            tempo: 309,
+                            proxima: 13
+                        },
+
+                        C: {
+                            tempo: 276,
+                            proxima: 12
+                        },
+
+                        D: {
+                            tempo: 61,
+                            proxima: 4
+                        }
+                    }
+                },
+
+
+                // PERGUNTA 13
+                {
+                    pararEm: 308.5,
+
+                    botoes: {
+                        A: "Três quatro",
+                        B: "Três quartos",
+                        C: "Três quatro avos",
+                        D: ""
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 276,
+                            proxima: 14
+                        },
+
+                        B: {
+                            tempo: 309,
+                            proxima: 15
+                        },
+
+                        C: {
+                            tempo: 276,
+                            proxima: 14
+                        },
+
+                        D: {
+                            tempo: 61,
+                            proxima: 4
+                        }
+                    }
+                },
+
+
+                // PERGUNTA 14
+                {
+                    pararEm: 308.5,
+
+                    botoes: {
+                        A: "Três quatro",
+                        B: "Três quartos",
+                        C: "Três quatro avos",
+                        D: ""
+                    },
+
+                    respostas: {
+                        A: {
+                            tempo: 276,
+                            proxima: 14
+                        },
+
+                        B: {
+                            tempo: 309,
+                            proxima: 15
+                        },
+
+                        C: {
+                            tempo: 276,
+                            proxima: 14
+                        },
+
+                        D: {
+                            tempo: 61,
+                            proxima: 4
+                        }
+                    }
+                }
+
+            ]
+
+        };
+
+        window.addEventListener("resize", function () {
+
+            if (typeof ajustarLayoutBotoes === "function") {
+
+                ajustarLayoutBotoes();
+
+            }
+
+        });
+
+    </script>
+
+    <script src="./src/JS/script.js"></script>
+</body>
+
+</html>
