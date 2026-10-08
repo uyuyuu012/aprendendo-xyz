@@ -62,7 +62,9 @@ function abrirMenu(unidade) {
             video.className =
                 "w-full rounded-lg shadow-lg border-4 border-[#303638]";
 
-            video.controls = true;
+            video.autoplay = true;
+            video.muted = true;
+            video.controls = false;
             video.preload = "metadata";
 
             if (unidade === 2) {
