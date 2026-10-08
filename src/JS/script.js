@@ -44,36 +44,99 @@ function abrirMenu(unidade) {
     }
 
     if (botoesMenu) {
+
         botoesMenu.innerHTML = "";
 
+        // ====================================================
+        // VÍDEO DA UNIDADE
+        // ====================================================
+
+        if (unidade === 2 || unidade === 5) {
+
+            const divVideo = document.createElement("div");
+
+            divVideo.className = "w-full pb-6";
+
+            const video = document.createElement("video");
+
+            video.className =
+                "w-full rounded-lg shadow-lg border-4 border-[#303638]";
+
+            video.controls = true;
+            video.preload = "metadata";
+
+            if (unidade === 2) {
+                video.src = "./src/IMG/video-abertura-unidade2.mp4";
+            }
+
+            if (unidade === 5) {
+                video.src = "./src/IMG/video-abertura-unidade5.mp4";
+            }
+
+            divVideo.appendChild(video);
+
+            botoesMenu.appendChild(divVideo);
+        }
+
+
+        // ====================================================
+        // BOTÕES DA UNIDADE
+        // ====================================================
+
         if (menus[unidade]) {
+
             menus[unidade].forEach(function (nome, index) {
+
                 const div = document.createElement("div");
+
                 div.className = "pb-6";
 
                 const button = document.createElement("button");
-                button.className = "w-full min-h-20 bg-red-600 border-4 border-[#303638] rounded-[20px] flex items-center justify-center p-4 hover:bg-red-700 transition";
+
+                button.className =
+                    "w-full min-h-20 bg-red-600 border-4 border-[#303638] rounded-[20px] flex items-center justify-center p-4 hover:bg-red-700 transition";
 
                 const h1 = document.createElement("h1");
-                h1.className = "text-white text-base sm:text-xl text-center";
+
+                h1.className =
+                    "text-white text-base sm:text-xl text-center";
+
                 h1.textContent = nome;
 
                 button.appendChild(h1);
+
                 div.appendChild(button);
+
                 botoesMenu.appendChild(div);
 
+
+                // Unidade 5 - primeiro botão
                 if (unidade === 5 && index === 0) {
+
                     button.onclick = function () {
+
                         window.location.href = "video.html";
+
                     };
+
                 }
+
+
+                // Unidade 2 - primeiro botão
                 if (unidade === 2 && index === 0) {
+
                     button.onclick = function () {
-                        window.location.href = "video2.html"
+
+                        window.location.href = "video2.html";
+
                     };
+
                 }
+
             });
+
         }
+
     }
 
     if (aside.classList.contains("w-0")) {
@@ -110,6 +173,7 @@ if (video && perguntas) {
     let perguntaAtual = 0;
     let perguntaAtiva = false;
     let mudandoVideo = false;
+    let perguntasRespondidas = new Set();
 
 
     // ========================================================
@@ -917,6 +981,16 @@ if (video && perguntas) {
                 300
             );
 
+
+            return;
+        }
+        // ====================================================
+        // IR PARA OUTRA PÁGINA
+        // ====================================================
+
+        if (escolha.pagina) {
+
+            window.location.href = escolha.pagina;
 
             return;
         }

@@ -26,13 +26,13 @@
         <div id="containerVideos" class="w-full">
 
             <!-- VÍDEO ATUAL -->
-            <video id="meuVideo" class="w-full rounded-lg shadow-lg" preload="auto" playsinline>
+            <video id="meuVideo" class="w-full rounded-lg shadow-lg" preload="auto"  playsinline>
                 <source src="./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05.mp4" type="video/mp4">
                 Seu navegador não suporta a reprodução de vídeos.
             </video>
 
             <!-- PRÓXIMO VÍDEO -->
-            <video id="proximoVideo" class="hidden w-full rounded-lg shadow-lg" preload="auto" playsinline>
+            <video id="proximoVideo" class="hidden w-full rounded-lg shadow-lg" preload="auto"  playsinline>
                 <source src="./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4" type="video/mp4">
                 Seu navegador não suporta a reprodução de vídeos.
             </video>
@@ -74,10 +74,10 @@
                     pararEm: 3.5,
                     pergunta: "Pergunta 0",
                     botoes: {
-                        A: "Resposta A",
-                        B: "Resposta B",
-                        C: "Rsposta C",
-                        D: "Resposta B"
+                        A: '<img src="./src/IMG/questão1-vdpergunta-correta.jpeg" class="max-w-full max-h-32 object-contain mx-auto">',
+                        B: '<img src="./src/IMG/questão1-vdpergunta-errada.jpeg" class="max-w-full max-h-32 object-contain mx-auto">',
+                        C: '<img src="./src/IMG/questão1-vdpergunta-errada2.jpeg" class="max-w-full max-h-32 object-contain mx-auto">',
+                        D: '<img src="./src/IMG/questão1-vdpergunta-errada3.jpeg" class="max-w-full max-h-32 object-contain mx-auto">'
                     },
 
                     respostas: {
@@ -140,17 +140,17 @@
                     pararEm: 63,
                     pergunta: "Pergunta 2",
                     botoes: {
-                        A: "Resposta A",
-                        B: "Resposta B",
-                        C: "Rsposta C",
-                        D: "Resposta B"
+                        A: '<img src="./src/IMG/questão2-vdpergunta-errada2.jpeg" class="max-w-full max-h-32 object-contain mx-auto">',
+                        B: '<img src="./src/IMG/questão2-vdpergunta-errada.jpeg" class="max-w-full max-h-32 object-contain mx-auto">',
+                        C: '<img src="./src/IMG/questão2-vdpergunta-correta.jpeg" class="max-w-full max-h-32 object-contain mx-auto">',
+                        D: '<img src="./src/IMG/questão2-vdpergunta-errada3.jpeg" class="max-w-full max-h-32 object-contain mx-auto">'
                     },
                     mostrarC: true,
                     mostrarD: true,
 
                     respostas: {
                         A: {
-                            correta: true,
+                            correta: false,
                             tempo: 64,
                             proxima: 3
                         },
@@ -160,7 +160,7 @@
                             proxima: 3
                         },
                         C: {
-                            correta: false,
+                            correta: true,
                             tempo: 107,
                             proxima: 4
                         },
@@ -245,14 +245,14 @@
                     pergunta: "Pergunta 5",
 
                     botoes: {
-                        A: "Resposta A",
-                        B: "Resposta B",
-                        C: "Resposta C",
-                        D: "Resposta D"
+                        A: "Pirâmide de base pentagonal.",
+                        B: "Prisma de base pentagonal.",
+                        C: "Pirâmide de base quadrada.",
+                        D: ""
                     },
 
                     mostrarC: true,
-                    mostrarD: true,
+                    mostrarD: false,
 
                     respostas: {
                         A: {
@@ -319,13 +319,13 @@
                     pergunta: "Pergunta 7",
 
                     botoes: {
-                        A: "Resposta A",
-                        B: "Resposta B",
+                        A: "Faces: 8 Arestas: 8 Vértices: 8",
+                        B: "Faces: 8 Arestas: 12 Vértices: 18",
                         C: "Resposta C",
-                        D: "Resposta D"
+                        D: "Faces: 8 Arestas: 18 Vértices: 12"
                     },
 
-                    mostrarC: true,
+                    mostrarC: false,
                     mostrarD: true,
 
                     respostas: {
@@ -392,13 +392,13 @@
                     pergunta: "Pergunta 9",
 
                     botoes: {
-                        A: "Resposta A",
-                        B: "Resposta B",
+                        A: "6",
+                        B: "8",
                         C: "Resposta C",
-                        D: "Resposta D"
+                        D: "9"
                     },
 
-                    mostrarC: true,
+                    mostrarC: false,
                     mostrarD: true,
 
                     respostas: {
