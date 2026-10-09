@@ -13,7 +13,7 @@ function validar() {
         alert("Usuário e senha inválidos.");
     }
 }
-function home() {location.href = "home.html"}
+function home() { location.href = "home.html" }
 function trocar() { location.href = "ano.html"; }
 function trocar2() { location.href = "unidades.html"; }
 function trocar3() { location.href = "video.php"; }
@@ -519,24 +519,19 @@ if (video && perguntas) {
     // ========================================================
 
     function configurarBotao(botao, resposta) {
-
         if (!botao || !resposta) return;
 
-        botao.innerHTML = formatarResposta(
-            resposta.texto
-        );
+        botao.innerHTML = formatarResposta(resposta.texto);
 
-        // Remove qualquer evento antigo
         botao.onclick = null;
 
-        // O botão responde pela letra ORIGINAL
-        // e não pela posição visual.
+        const letraOriginal = resposta.letra;
+
         botao.onclick = function () {
-
-            responder(resposta.letra);
-
+            responder(letraOriginal);
         };
     }
+
 
 
     // ========================================================

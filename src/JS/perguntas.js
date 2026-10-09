@@ -1,66 +1,31 @@
 
-const configuracao = window.textoConfig || {};
 let etapaAtual = 0;
-
 const letras = ["A", "B", "C", "D"];
+const respostasEmbaralhadas = {};
 
-const ordemOriginal = {};
+function embaralhar(array) {
+    const resultado = [...array];
 
-function embaralharRespostas() {
-    const configuracao = window.textoConfig;
+    for (let i = resultado.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
 
-    if (!configuracao || !Array.isArray(configuracao.etapas)) {
-        return;
+        [resultado[i], resultado[j]] = [
+            resultado[j],
+            resultado[i]
+        ];
     }
 
-    configuracao.etapas.forEach(function (etapa, indice) {
-        if (!etapa.botoes) {
-            return;
-        }
+    if (
+        resultado.length > 1 &&
+        resultado.every((letra, indice) => letra === array[indice])
+    ) {
+        [resultado[0], resultado[1]] = [
+            resultado[1],
+            resultado[0]
+        ];
+    }
 
-        const letrasOriginais = Object.keys(etapa.botoes);
-
-        ordemOriginal[indice] = {};
-
-        letrasOriginais.forEach(function (letra) {
-            ordemOriginal[indice][letra] = {
-                botao: etapa.botoes[letra],
-                resposta: etapa.respostas
-                    ? etapa.respostas[letra]
-                    : undefined
-            };
-        });
-
-        const letrasEmbaralhadas = [...letrasOriginais];
-
-        for (let i = letrasEmbaralhadas.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-
-            [letrasEmbaralhadas[i], letrasEmbaralhadas[j]] =
-                [letrasEmbaralhadas[j], letrasEmbaralhadas[i]];
-        }
-
-        const novosBotoes = {};
-        const novasRespostas = {};
-
-        letrasEmbaralhadas.forEach(function (letraOriginal, indiceBotao) {
-            const novaLetra = letrasOriginais[indiceBotao];
-
-            novosBotoes[novaLetra] =
-                ordemOriginal[indice][letraOriginal].botao;
-
-            if (etapa.respostas) {
-                novasRespostas[novaLetra] =
-                    ordemOriginal[indice][letraOriginal].resposta;
-            }
-        });
-
-        etapa.botoes = novosBotoes;
-
-        if (etapa.respostas) {
-            etapa.respostas = novasRespostas;
-        }
-    });
+    return resultado;
 }
 
 function mostrarEtapa(indice) {
@@ -88,6 +53,22 @@ function mostrarEtapa(indice) {
     etapaAtual = indice;
     texto.innerHTML = etapa.texto || "";
 
+    const letrasDisponiveis = letras.filter(function (letra) {
+        return (
+            etapa["mostrar" + letra] !== false &&
+            etapa.botoes &&
+            etapa.botoes[letra] !== undefined
+        );
+    });
+
+    const letrasSorteadas = embaralhar(letrasDisponiveis);
+
+    respostasEmbaralhadas[indice] = {};
+
+    letrasDisponiveis.forEach(function (letra, posicao) {
+        respostasEmbaralhadas[indice][letra] = letrasSorteadas[posicao];
+    });
+
     letras.forEach(function (letra) {
         const botao = document.getElementById(
             "botao-" + letra.toLowerCase()
@@ -102,17 +83,17 @@ function mostrarEtapa(indice) {
             return;
         }
 
-        const propriedadeMostrar = "mostrar" + letra;
-
         const mostrar =
-            etapa[propriedadeMostrar] !== false &&
+            etapa["mostrar" + letra] !== false &&
             etapa.botoes &&
             etapa.botoes[letra] !== undefined;
 
         botao.style.display = mostrar ? "" : "none";
 
         if (mostrar) {
-            conteudo.innerHTML = etapa.botoes[letra];
+            const letraOriginal = respostasEmbaralhadas[indice][letra];
+
+            conteudo.innerHTML = etapa.botoes[letraOriginal];
         } else {
             conteudo.innerHTML = "";
         }
@@ -134,10 +115,13 @@ window.responder = function (letra) {
         return;
     }
 
-    const resposta = etapa.respostas[letra];
+    const letraOriginal =
+        respostasEmbaralhadas[etapaAtual]?.[letra] || letra;
+
+    const resposta = etapa.respostas[letraOriginal];
 
     if (!resposta || resposta.proxima === undefined) {
-        console.error("Resposta sem próxima etapa:", letra);
+        console.error("Resposta sem próxima etapa:", letraOriginal);
         return;
     }
 
@@ -145,6 +129,5 @@ window.responder = function (letra) {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-    embaralharRespostas();
     mostrarEtapa(0);
 });
