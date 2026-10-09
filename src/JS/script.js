@@ -13,7 +13,7 @@ function validar() {
         alert("Usuário e senha inválidos.");
     }
 }
-
+function home() {location.href = "home.html"}
 function trocar() { location.href = "ano.html"; }
 function trocar2() { location.href = "unidades.html"; }
 function trocar3() { location.href = "video.php"; }
