@@ -123,7 +123,7 @@
 
                 {
                     texto: `<p class="text-lg md:text-2xl mb-4 md:mb-6">2. Observe as figuras e descubra qual delas corresponde à planificação do seguinte bloco retangular de base quadrada.</p>
-                    <img src="./src/IMG/ex2-perguntas" class="mx-auto max-w-full h-auto">`,
+                    <img src="./src/IMG/ex2-perguntas.jpeg" class="mx-auto max-w-full h-auto">`,
 
                     botoes: {
                         A: '<img src="./src/IMG/ex2-perguntas-errada.jpeg" class="max-w-full max-h-20 object-contain mx-auto">',
@@ -141,7 +141,7 @@
                 },
 
                 {
-                    texto: '<p class="text-lg md:text-2xl mb-4 md:mb-6">2. Observe as figuras e descubra qual delas corresponde à planificação do seguinte bloco retangular de base quadrada.</p>',
+                    texto: '<p class="text-lg md:text-2xl mb-4 md:mb-6">Nesse tipo de atividade é preciso verificar se a planificação possui a quantidade de faces correta, se as figuras correspondem às faces e se a disposição das figuras está correta. Como esse bloco retangular tem base quadrada, 2 faces são quadrados e 4 faces são retângulos, totalizando 6 faces. Assim, a figura apresentada no item a não representa a planificação desse bloco retangular pois é composta por apenas 4 figuras. A figura apresentada no item d não representa a planificação desse bloco retangular pois é composta apenas por quadrados e, a figura apresentada no item b não representa a planificação desse bloco retangular pois a disposição das figuras não está correta. Você pode desenhar esse molde em uma folha de papel, recortar com o auxílio de um adulto e verificar que não é possível montar um bloco retangular com essa figura. A figura apresentada no item c corresponde a planificação do bloco retangular. Observe.</p><img src="./src/IMG/ex2-perguntas-texto.jpeg" class="mx-auto max-w-full h-auto">',
 
                     botoes: {
                         A: '<img src="./src/IMG/ex2-perguntas-errada.jpeg" class="max-w-full max-h-20 object-contain mx-auto">',
@@ -159,40 +159,77 @@
                 },
 
                 {
-                    texto: '<p class="text-lg md:text-2xl mb-4 md:mb-6">Observe as planificações e descubra qual delas corresponde à planificação de um cubo.</p> <img src="./src/IMG/WhatsApp Image 2026-09-22 at 12.57.13.jpeg" class="mx-auto max-w-full h-auto">',
+                    texto: `<p class="text-lg md:text-2xl mb-4 md:mb-6">Isso mesmo!  A figura apresentada no item a não representa a planificação desse bloco retangular pois é composta por apenas 4 figuras. A figura apresentada no item d não representa a planificação desse bloco retangular pois é composta apenas por quadrados e, a figura apresentada no item b não representa a planificação desse bloco retangular pois a disposição das figuras não está correta. Você pode desenhar esse molde em uma folha de papel, recortar com o auxílio de um adulto e verificar que não é possível montar um bloco retangular com essa figura. A figura apresentada no item c é corresponde a planificação do bloco retangular. Observe.</p>`,
 
                     botoes: {
-                        A: '<img src="./src/IMG/WhatsApp10 Image 2026-09-22 at 12.57.13.png" class="w-full h-full object-contain">',
-                        B: '<img src="./src/IMG/WhatsApp11 Image 2026-09-22 at 12.57.13.jpg" class="w-full h-full object-contain">',
-                        C: '<img src="./src/IMG/WhatsApp12 Image 2026-09-22 at 12.57.13.png" class="w-full h-full object-contain">',
-                        D: '<img src="./src/IMG/WhatsApp13 Image 2026-09-22 at 12.57.13.png" class="w-full h-full object-contain">'
+                        A: 'Próxima pergunta'
                     },
 
                     respostas: {
-                        A: { proxima: 6 },
-                        B: { proxima: 6 },
-                        C: { proxima: 7 },
-                        D: { proxima: 6 }
-                    }
+                        A: { proxima: 6 }
+                    },
+
+                    mostrarB: false,
+                    mostrarC: false,
+                    mostrarD: false
                 },
 
                 {
-                    texto: '<p class="text-lg md:text-2xl mb-4 md:mb-6">Nessa atividade a “figura intrometida” é aquela que não apresenta características comuns aos demais sólidos geométricos. Observe que temos um cone, uma esfera, um cilindro e um prisma de base pentagonal. O cone, a esfera e o cilindro são chamados corpos redondos, pois possuem pelo menos uma superfície curva e o prisma é um poliedro pois possui apenas faces planas. Por isso, o prisma é a “figura intrometida</p>',
+                    texto: '<p class="text-lg md:text-2xl mb-4 md:mb-6">A figura mostrada na tela corresponde à planificação de qual sólido geométrico?</p> <img src="./src/IMG/ex3-perguntas.jpeg" class="mx-auto max-w-full h-auto">',
+
+                    mostrarD: false,
 
                     botoes: {
-                        A: '<img src="./src/IMG/WhatsApp10 Image 2026-09-22 at 12.57.13.png" class="w-full h-full object-contain">',
-                        B: '<img src="./src/IMG/WhatsApp11 Image 2026-09-22 at 12.57.13.jpg" class="w-full h-full object-contain">',
-                        C: '<img src="./src/IMG/WhatsApp12 Image 2026-09-22 at 12.57.13.png" class="w-full h-full object-contain">',
-                        D: '<img src="./src/IMG/WhatsApp13 Image 2026-09-22 at 12.57.13.png" class="w-full h-full object-contain">'
+                        A: 'Prisma de base triangular',
+                        B: 'Pirâmide de base triangular',
+                        C: 'Pirâmide de base pentagonal',
+                        D: ''
                     },
 
                     respostas: {
-                        A: { proxima: 6 },
-                        B: { proxima: 6 },
-                        C: { proxima: 7 },
-                        D: { proxima: 6 }
+                        A: { proxima: 7 },
+                        B: { proxima: 7 },
+                        C: { proxima: 8 },
+                        D: { proxima: 7 }
                     }
+                },
+                {
+                    texto: '<p class="text-lg md:text-2xl mb-4 md:mb-6">Não é bem isso. Observe que essa figura é composta por um pentágono e por 5 triângulos. Essas faces correspondem à planificação de uma pirâmide de base pentagonal em que o pentágono corresponde à base da pirâmide e os triângulos, às faces laterais. Observe essa outra forma de planificar essa pirâmide.</p> <img src="./src/IMG/ex3-perguntas.jpeg" class="mx-auto max-w-full h-auto">',
+
+                    mostrarD: false,
+
+                    botoes: {
+                        A: 'Prisma de base triangular',
+                        B: 'Pirâmide de base triangular',
+                        C: 'Pirâmide de base pentagonal',
+                        D: ''
+                    },
+
+                    respostas: {
+                        A: { proxima: 7 },
+                        B: { proxima: 7 },
+                        C: { proxima: 8 },
+                        D: { proxima: 7 }
+                    }
+                },
+                {
+                    texto: `<p class="text-lg md:text-2xl mb-4 md:mb-6">Isso mesmo!  Observe que essa figura é composta por um pentágono e por 5 triângulos. Essas faces correspondem à planificação de uma pirâmide de base pentagonal em que o pentágono corresponde à base da pirâmide e os triângulos, às faces laterais. Observe essa outra forma de planificar essa pirâmide.</p>`,
+
+                    botoes: {
+                        A: 'Reiniciar',
+                        B: 'Voltar para a tela de unidades'
+                    },
+
+                    respostas: {
+                        A: { proxima: 0 }
+                        
+                    },
+
+                    
+                    mostrarC: false,
+                    mostrarD: false
                 }
+                
             ]
         };
 

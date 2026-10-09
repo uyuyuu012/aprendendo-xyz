@@ -1,42 +1,72 @@
-// ============================================================
-// SCRIPT GENÉRICO - TEXTO COM BOTÕES
-// ============================================================
 
 const configuracao = window.textoConfig || {};
-const etapas = configuracao.etapas || [];
-
-// ============================================================
-// ELEMENTOS
-// ============================================================
-
-const texto = document.getElementById("texto-perguntas");
-const perguntas = document.getElementById("perguntas");
-
-const buttonA = document.getElementById("btn-a");
-const buttonB = document.getElementById("btn-b");
-const buttonC = document.getElementById("btn-c");
-const buttonD = document.getElementById("btn-d");
-
-const botaoA = document.getElementById("botao-a");
-const botaoB = document.getElementById("botao-b");
-const botaoC = document.getElementById("botao-c");
-const botaoD = document.getElementById("botao-d");
-
-
-// ============================================================
-// SCRIPT GENÉRICO - TEXTO COM BOTÕES
-// ============================================================
-
 let etapaAtual = 0;
 
-// ============================================================
-// MOSTRAR ETAPA
-// ============================================================
+const letras = ["A", "B", "C", "D"];
+
+const ordemOriginal = {};
+
+function embaralharRespostas() {
+    const configuracao = window.textoConfig;
+
+    if (!configuracao || !Array.isArray(configuracao.etapas)) {
+        return;
+    }
+
+    configuracao.etapas.forEach(function (etapa, indice) {
+        if (!etapa.botoes) {
+            return;
+        }
+
+        const letrasOriginais = Object.keys(etapa.botoes);
+
+        ordemOriginal[indice] = {};
+
+        letrasOriginais.forEach(function (letra) {
+            ordemOriginal[indice][letra] = {
+                botao: etapa.botoes[letra],
+                resposta: etapa.respostas
+                    ? etapa.respostas[letra]
+                    : undefined
+            };
+        });
+
+        const letrasEmbaralhadas = [...letrasOriginais];
+
+        for (let i = letrasEmbaralhadas.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+
+            [letrasEmbaralhadas[i], letrasEmbaralhadas[j]] =
+                [letrasEmbaralhadas[j], letrasEmbaralhadas[i]];
+        }
+
+        const novosBotoes = {};
+        const novasRespostas = {};
+
+        letrasEmbaralhadas.forEach(function (letraOriginal, indiceBotao) {
+            const novaLetra = letrasOriginais[indiceBotao];
+
+            novosBotoes[novaLetra] =
+                ordemOriginal[indice][letraOriginal].botao;
+
+            if (etapa.respostas) {
+                novasRespostas[novaLetra] =
+                    ordemOriginal[indice][letraOriginal].resposta;
+            }
+        });
+
+        etapa.botoes = novosBotoes;
+
+        if (etapa.respostas) {
+            etapa.respostas = novasRespostas;
+        }
+    });
+}
 
 function mostrarEtapa(indice) {
     const configuracao = window.textoConfig;
 
-    if (!configuracao || !configuracao.etapas) {
+    if (!configuracao || !Array.isArray(configuracao.etapas)) {
         console.error("A configuração textoConfig não foi encontrada.");
         return;
     }
@@ -51,16 +81,12 @@ function mostrarEtapa(indice) {
     const texto = document.getElementById("texto-perguntas");
 
     if (!texto) {
-        console.error(
-            'O elemento com id="texto-perguntas" não foi encontrado.'
-        );
+        console.error('O elemento "texto-perguntas" não foi encontrado.');
         return;
     }
 
     etapaAtual = indice;
-    texto.innerHTML = etapa.texto;
-
-    const letras = ["A", "B", "C", "D"];
+    texto.innerHTML = etapa.texto || "";
 
     letras.forEach(function (letra) {
         const botao = document.getElementById(
@@ -93,14 +119,10 @@ function mostrarEtapa(indice) {
     });
 }
 
-// ============================================================
-// RESPONDER
-// ============================================================
-
 window.responder = function (letra) {
     const configuracao = window.textoConfig;
 
-    if (!configuracao || !configuracao.etapas) {
+    if (!configuracao || !Array.isArray(configuracao.etapas)) {
         console.error("A configuração das perguntas não foi encontrada.");
         return;
     }
@@ -122,10 +144,7 @@ window.responder = function (letra) {
     mostrarEtapa(resposta.proxima);
 };
 
-// ============================================================
-// INICIALIZAÇÃO
-// ============================================================
-
 document.addEventListener("DOMContentLoaded", function () {
+    embaralharRespostas();
     mostrarEtapa(0);
 });
