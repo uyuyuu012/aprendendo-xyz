@@ -16,7 +16,10 @@ function validar() {
 function home() { location.href = "home.html" }
 function trocar() { location.href = "ano.html"; }
 function trocar2() { location.href = "unidades.html"; }
-function trocar3() { location.href = "video.php"; }
+function trocar3() { location.href = "video.html"; }
+
+function solidos1() { location.href = "video2.html"; }
+function solidos2() { location.href = "videopergunta.html"; }
 
 const aside = document.getElementById("aside");
 const video2 = document.getElementById("video2");
@@ -24,6 +27,17 @@ const botoesMenu = document.getElementById("botoesMenu");
 
 const menus = {
     1: ["Base e estrutura", "Sistema de numeração babilônico e egípcio", "Sistema de numeração romano", "Sistema de numeraçãoindo-arábico (decimal)", "Números naturais", "Operações com números naturais", "Potenciação e Expressões numéricas"],
+    2: ["Sólidos geométricos", "Ponto e segmento de reta", "Semirretas e ângulos", "O transferidor", "Polígonos", "Operações com números naturais", "Triângulos", "Quadriláteros"],
+    3: ["Circunferência", "Ponto e segmento de reta", "Construção de triângulos", "Reta perpendicular e reta paralela", "Construção de uma reta paralela e perpendicular", "Plano cartesiano", "Ampliação e redução"],
+    4: ["Múltiplos de um número natural", "Divisores de um número", "Critérios de divisibilidade", "Números primos e compostos", "Decomposição em fatores primos"],
+    5: ["Ideias de fração", "Frações equivalentes e simplificação de frações", "Comparação entre frações", "Adição de frações", "Subtração de frações", "Multiplicação de frações", "Divisão de frações", "Porcentagem"],
+    6: ["A insuficiência dos números inteiros", "Comparação e reta numérica", "Mudança da forma decimal para a fracionária", "Operações com decimais", "Situações envolvendo mais de uma operação", "Porcentagem", "Ampliação e redução", "Quadriláteros"],
+    7: ["O que é estatística", "Tabelas", "Gráficos estatísticos – gráfico de barra", "Pictograma", "Tabela de dupla entrada e gráfico de barras duplas", "Probabilidade", "Cálculo de probabilidade"],
+    8: ["Grandeza: comprimento", "Grandeza: perímetro", "Grandeza: área", "Grandeza: massa", "Grandezas: volume e capacidade"]
+};
+
+const menus2 = {
+    1: ["Poliedros e Corpos Redondos", "Faces", "Arestas e vértices", "Prisma", "Pirâmide", " Planificação Corpos Redondos", " Relação de Euler"],
     2: ["Sólidos geométricos", "Ponto e segmento de reta", "Semirretas e ângulos", "O transferidor", "Polígonos", "Operações com números naturais", "Triângulos", "Quadriláteros"],
     3: ["Circunferência", "Ponto e segmento de reta", "Construção de triângulos", "Reta perpendicular e reta paralela", "Construção de uma reta paralela e perpendicular", "Plano cartesiano", "Ampliação e redução"],
     4: ["Múltiplos de um número natural", "Divisores de um número", "Critérios de divisibilidade", "Números primos e compostos", "Decomposição em fatores primos"],
@@ -68,7 +82,7 @@ function abrirMenu(unidade) {
             video.preload = "metadata";
 
             if (unidade === 2) {
-                video.src = "./src/IMG/video-abertura-unidade2.mp4";
+                video.src = "./src/IMG/video_abertura2.mp4";
             }
 
             if (unidade === 5) {
@@ -129,7 +143,7 @@ function abrirMenu(unidade) {
 
                     button.onclick = function () {
 
-                        window.location.href = "video2.html";
+                        window.location.href = "solidos-geometricos.html";
 
                     };
 
@@ -138,6 +152,9 @@ function abrirMenu(unidade) {
             });
 
         }
+
+
+
 
     }
 
@@ -152,6 +169,104 @@ function abrirMenu(unidade) {
         }
     }
 }
+
+function abrirMenu2(unidade) {
+    if (!aside) return;
+
+    if (!unidade) {
+        aside.classList.remove("w-1/2");
+        aside.classList.add("w-0");
+        if (video2) video2.pause();
+        return;
+    }
+
+    if (botoesMenu) {
+
+        botoesMenu.innerHTML = "";
+
+        // ====================================================
+        // VÍDEO DA UNIDADE
+        // ====================================================
+
+
+
+        // ====================================================
+        // BOTÕES DA UNIDADE
+        // ====================================================
+
+        if (menus2[unidade]) {
+
+            menus2[unidade].forEach(function (nome, index) {
+
+                const div = document.createElement("div");
+
+                div.className = "pb-6";
+
+                const button = document.createElement("button");
+
+                button.className =
+                    "w-full min-h-20 bg-red-600 border-4 border-[#303638] rounded-[20px] flex items-center justify-center p-4 hover:bg-red-700 transition";
+
+                const h1 = document.createElement("h1");
+
+                h1.className =
+                    "text-white text-base sm:text-xl text-center";
+
+                h1.textContent = nome;
+
+                button.appendChild(h1);
+
+                div.appendChild(button);
+
+                botoesMenu.appendChild(div);
+
+
+                // Unidade 5 - primeiro botão
+                if (unidade === 1 && index === 0) {
+
+                    button.onclick = function () {
+
+                        window.location.href = "video2.html";
+
+                    };
+
+                }
+
+
+                // Unidade 2 - primeiro botão
+                if (unidade === 2 && index === 0) {
+
+                    button.onclick = function () {
+
+                        window.location.href = "solidos-geometricos.html";
+
+                    };
+
+                }
+
+            });
+
+        }
+
+
+
+
+    }
+
+    if (aside.classList.contains("w-0")) {
+        aside.classList.remove("w-0");
+        aside.classList.add("w-1/2");
+
+        if (video2) {
+            video2.play().catch(function (erro) {
+                console.log("Não foi possível iniciar o vídeo:", erro);
+            });
+        }
+    }
+}
+
+
+
 
 const configuracao = window.videoConfig || {};
 const perguntasConfig = configuracao.perguntas || [];

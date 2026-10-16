@@ -28,14 +28,14 @@
         <div id="containerVideos" class="w-full">
 
             <!-- VÍDEO ATUAL -->
-            <video id="meuVideo" class="w-full rounded-lg shadow-lg" preload="auto"  playsinline>
-                <source src="./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05.mp4" type="video/mp4">
+            <video id="meuVideo" class="w-full rounded-lg shadow-lg" preload="auto" controls playsinline>
+                <source src="./src/IMG/videopergunta.mp4" type="video/mp4">
                 Seu navegador não suporta a reprodução de vídeos.
             </video>
 
             <!-- PRÓXIMO VÍDEO -->
-            <video id="proximoVideo" class="hidden w-full rounded-lg shadow-lg" preload="auto"  playsinline>
-                <source src="./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4" type="video/mp4">
+            <video id="proximoVideo" class="hidden w-full rounded-lg shadow-lg" preload="auto" controls playsinline>
+                <source src="./src/IMG/videopergunta2.mp4" type="video/mp4">
                 Seu navegador não suporta a reprodução de vídeos.
             </video>
 
@@ -44,22 +44,22 @@
         <div id="perguntas" class="hidden w-full flex flex-row items-center justify-center gap-4">
 
             <button id="botao-a" onclick="responder('A')"
-                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                class="w-full md:w-1/4 bg-blue-700 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
                 <h1 id="btn-a" class="text-xl md:text-2xl text-white">A</h1>
             </button>
 
             <button id="botao-b" onclick="responder('B')"
-                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                class="w-full md:w-1/4 bg-blue-700 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
                 <h1 id="btn-b" class="text-xl md:text-2xl text-white">B</h1>
             </button>
 
             <button id="botao-c" onclick="responder('C')"
-                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                class="w-full md:w-1/4 bg-blue-700 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
                 <h1 id="btn-c" class="text-xl md:text-2xl text-white">C</h1>
             </button>
 
             <button id="botao-d" onclick="responder('D')"
-                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                class="w-full md:w-1/4 bg-blue-700 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
                 <h1 id="btn-d" class="text-xl md:text-2xl text-white">D</h1>
             </button>
 
@@ -72,7 +72,7 @@
 
                 {
                     tipo: "video",
-                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05.mp4",
+                    video: "./src/IMG/videopergunta.mp4",
                     pararEm: 3.5,
                     pergunta: "Pergunta 0",
                     botoes: {
@@ -90,17 +90,17 @@
                         },
                         B: {
                             correta: false,
-                            tempo: 4,
+                            tempo: 6,
                             proxima: 1
                         },
                         C: {
                             correta: false,
-                            tempo: 4,
+                            tempo: 6,
                             proxima: 1
                         },
                         D: {
                             correta: false,
-                            tempo: 4,
+                            tempo: 6,
                             proxima: 1
                         }
                     }
@@ -108,7 +108,7 @@
 
                 {
                     tipo: "video",
-                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05.mp4",
+                    video: "./src/IMG/videopergunta.mp4",
                     pararEm: 33,
                     pergunta: "Pergunta 1",
 
@@ -123,14 +123,14 @@
                     respostas: {
                         A: {
                             correta: false,
-                            tempo: 0,
+                            tempo: 6,
                             proxima: 0,
                             voltarInicio: true
                         },
 
                         B: {
                             correta: true,
-                            tempo: 57,
+                            tempo: 58,
                             proxima: 2
                         }
                     }
@@ -153,22 +153,22 @@
                     respostas: {
                         A: {
                             correta: false,
-                            tempo: 64,
+                            tempo: 86,
                             proxima: 3
                         },
                         B: {
                             correta: false,
-                            tempo: 64,
+                            tempo: 86,
                             proxima: 3
                         },
                         C: {
                             correta: true,
-                            tempo: 107,
+                            tempo: 136,
                             proxima: 4
                         },
                         D: {
                             correta: false,
-                            tempo: 64,
+                            tempo: 86,
                             proxima: 3
                         }
                     }
@@ -176,8 +176,8 @@
 
                 {
                     tipo: "video",
-                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05.mp4",
-                    pararEm: 106,
+                    video: "./src/IMG/videopergunta.mp4",
+                    pararEm: 130,
                     pergunta: "Pergunta 3",
 
                     botoes: {
@@ -191,7 +191,7 @@
                     respostas: {
                         A: {
                             correta: false,
-                            tempo: 0,
+                            tempo: 86,
                             proxima: 0,
                             voltarInicio: true
                         },
@@ -206,8 +206,8 @@
 
                 {
                     tipo: "video",
-                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05.mp4",
-                    pararEm: 142,
+                    video: "./src/IMG/videopergunta.mp4",
+                    pararEm: 168,
                     pergunta: "Pergunta 4",
 
                     botoes: {
@@ -233,16 +233,16 @@
                         }
                     },
 
-                    proximoVideo: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4",
+                    proximoVideo: "./src/IMG/videopergunta2.mp4",
                     proximaPergunta: 5
                 },
 
                 {
                     tipo: "video",
 
-                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4",
+                    video: "./src/IMG/videopergunta2.mp4",
 
-                    pararEm: 6.5,
+                    pararEm: 8,
 
                     pergunta: "Pergunta 5",
 
@@ -259,44 +259,43 @@
                     respostas: {
                         A: {
                             correta: true,
-                            tempo: 57,
+                            tempo: 49,
                             proxima: 7
                         },
 
                         B: {
                             correta: false,
-                            tempo: 8,
+                            tempo: 19,
                             proxima: 6
                         },
 
                         C: {
                             correta: false,
-                            tempo: 8,
+                            tempo: 19,
                             proxima: 6
                         },
 
                         D: {
                             correta: false,
-                            tempo: 8,
+                            tempo: 19,
                             proxima: 6
                         }
                     }
                 },
                 {
                     tipo: "video",
-                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4",
+                    video: "./src/IMG/videopergunta2.mp4",
                     pararEm: 32,
                     pergunta: "Pergunta 6",
 
                    
 
                     botoes: {
-                        A: "Pirâmide de base pentagonal.",
-                        B: "Prisma de base pentagonal.",
-                        C: "Pirâmide de base quadrada.",
+                        A: "Proxima",
+                        B: "Voltar"
                     },
 
-                    mostrarC: true,
+                    mostrarC: false,
                     mostrarD: false,
 
                     respostas: {
@@ -307,38 +306,27 @@
                         },
 
                         B: {
-                            correta: false,
+                            correta: true,
                             tempo: 8,
                             proxima: 6
                         },
 
-                        C: {
-                            correta: false,
-                            tempo: 8,
-                            proxima: 6
-                        },
-
-                        D: {
-                            correta: false,
-                            tempo: 8,
-                            proxima: 6
-                        }
                     }
                 },
                 {
                     tipo: "video",
 
-                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4",
+                    video: "./src/IMG/videopergunta2.mp4",
 
-                    pararEm: 65.5,
+                    pararEm: 87,
 
                     pergunta: "Pergunta 7",
 
                     botoes: {
                         A: "Faces: 8 Arestas: 8 Vértices: 8",
                         B: "Faces: 8 Arestas: 12 Vértices: 18",
-                        C: "",
-                        D: "Faces: 8 Arestas: 18 Vértices: 12"
+                        C: "Faces: 8 Arestas: 18 Vértices: 12",
+                        D: "",
                     },
 
                     mostrarC: false,
@@ -358,21 +346,21 @@
                         },
 
                         C: {
+                            correta: true,
+                            tempo: 84,
+                            proxima: 9
+                        },
+
+                        D: {
                             correta: false,
                             tempo: 68,
                             proxima: 8
                         },
-
-                        D: {
-                            correta: true,
-                            tempo: 84,
-                            proxima: 9
-                        }
                     }
                 },
                 {
                     tipo: "video",
-                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4",
+                    video: "./src/IMG/videopergunta2.mp4",
                     pararEm: 81,
                     pergunta: "Pergunta 8",
 
@@ -401,7 +389,7 @@
                 {
                     tipo: "video",
 
-                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4",
+                    video: "./src/IMG/videopergunta2.mp4",
 
                     pararEm: 104,
 
@@ -446,7 +434,7 @@
                 },
                 {
                     tipo: "video",
-                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05 (1).mp4",
+                    video: "./src/IMG/videopergunta2.mp4",
                     pararEm: 128,
                     pergunta: "Pergunta 8",
 

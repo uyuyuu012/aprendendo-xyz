@@ -29,48 +29,51 @@
 
         <!-- VÍDEO -->
         <video id="meuVideo" preload="auto" class="w-full rounded-lg shadow-lg" autoplay>
-            <source src="./src/IMG/WhatsApp Video 2026-10-01 at 14.51.27.mp4" type="video/mp4">
+            <source src="./src/IMG/video2.mp4" type="video/mp4">
         </video>
         <div id="perguntas" class="hidden w-full flex flex-row items-center justify-center gap-4">
 
             <button id="botao-a" onclick="responder('A')"
-                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                class="w-full md:w-1/4 bg-blue-700 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
                 <h1 id="btn-a" class="text-xl md:text-2xl text-white">
                     A
                 </h1>
             </button>
 
             <button id="botao-b" onclick="responder('B')"
-                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                class="w-full md:w-1/4 bg-blue-700 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
                 <h1 id="btn-b" class="text-xl md:text-2xl text-white">
                     B
                 </h1>
             </button>
 
             <button id="botao-c" onclick="responder('C')"
-                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                class="w-full md:w-1/4 bg-blue-700 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
                 <h1 id="btn-c" class="text-xl md:text-2xl text-white">
                     C
                 </h1>
             </button>
 
             <button id="botao-d" onclick="responder('D')"
-                class="w-full md:w-1/4 bg-cyan-400 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                class="w-full md:w-1/4 bg-blue-700 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
                 <h1 id="btn-d" oncanplay="ajustarFonte()" class="text-xl md:text-2xl text-white">
                     D
                 </h1>
             </button>
 
+
+
         </div>
     </section>
 
     <script>
+
         window.videoConfig = {
             perguntas: [
 
                 // PERGUNTA 1
                 {
-                    pararEm: 29.5,
+                    pararEm: 33,
 
                     botoes: {
                         A: "Poliedros – cubo, cilindro e bloco retangular Corpos redondos – cone, esfera e pirâmides",
@@ -83,23 +86,23 @@
 
                     respostas: {
                         A: {
-                            tempo: 31,
+                            tempo: 35,
                             proxima: 1
                         },
 
                         B: {
-                            tempo: 31,
+                            tempo: 35,
                             proxima: 1
                         },
 
                         C: {
-                            tempo: 48,
+                            tempo: 54,
                             proxima: 2
                         }
                     }
                 },
                 {
-                    pararEm: 47,
+                    pararEm: 50,
 
                     botoes: {
                         A: "Poliedros – cubo, cilindro e bloco retangular Corpos redondos – cone, esfera e pirâmides",
@@ -113,23 +116,23 @@
 
                     respostas: {
                         A: {
-                            tempo: 31,
+                            tempo: 35,
                             proxima: 1
                         },
 
                         B: {
-                            tempo: 31,
+                            tempo: 35,
                             proxima: 1
                         },
 
                         C: {
-                            tempo: 48,
+                            tempo: 54,
                             proxima: 2
                         }
                     }
                 },
                 {
-                    pararEm: 76.5,
+                    pararEm: 86,
 
                     botoes: {
                         A: "Voltar para o começo",
@@ -150,6 +153,7 @@
 
             ]
         };
+
 
         window.addEventListener("resize", function () {
 
