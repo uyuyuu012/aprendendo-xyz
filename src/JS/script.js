@@ -17,6 +17,7 @@ function home() { location.href = "home.html" }
 function trocar() { location.href = "ano.html"; }
 function trocar2() { location.href = "unidades.html"; }
 function trocar3() { location.href = "video.html"; }
+function trocarperguntas() { location.href = "perguntas.html" }
 
 function solidos1() { location.href = "video2.html"; }
 function solidos2() { location.href = "videopergunta.html"; }
@@ -77,7 +78,6 @@ function abrirMenu(unidade) {
                 "w-full rounded-lg shadow-lg border-4 border-[#303638]";
 
             video.autoplay = true;
-            video.muted = true;
             video.controls = false;
             video.preload = "metadata";
 
@@ -596,33 +596,20 @@ if (video && perguntas) {
     // ========================================================
 
     function criarRespostasEmbaralhadas(pergunta) {
-
-        if (!pergunta || !pergunta.botoes) {
+        if (!pergunta || !pergunta.botoes || !pergunta.respostas) {
             return [];
         }
 
         const respostas = [];
 
-        const letras = [
-            "A",
-            "B",
-            "C",
-            "D"
-        ];
-
-        letras.forEach(function (letra) {
-
+        ["A", "B", "C", "D"].forEach(function (letra) {
             if (respostaPodeAparecer(pergunta, letra)) {
-
                 respostas.push({
-
                     letra: letra,
-
-                    texto: pergunta.botoes[letra]
-
+                    texto: pergunta.botoes[letra],
+                    acao: pergunta.respostas[letra]
                 });
             }
-
         });
 
         return embaralhar(respostas);
@@ -637,13 +624,10 @@ if (video && perguntas) {
         if (!botao || !resposta) return;
 
         botao.innerHTML = formatarResposta(resposta.texto);
-
         botao.onclick = null;
 
-        const letraOriginal = resposta.letra;
-
         botao.onclick = function () {
-            responder(letraOriginal);
+            responder(resposta.letra);
         };
     }
 
@@ -885,120 +869,17 @@ if (video && perguntas) {
             if (perguntaAtiva) return;
 
 
-            const pergunta =
-                perguntasConfig[perguntaAtual];
-
+            const pergunta = perguntasConfig[perguntaAtual];
 
             if (!pergunta) return;
 
-
-            if (
-                video.currentTime >=
-                pergunta.pararEm
-            ) {
-
-
-                // ====================================================
-                // TROCA AUTOMÁTICA PARA O PRÓXIMO VÍDEO
-                // ====================================================
-
-                if (pergunta.proximoVideo) {
-
-                    mudandoVideo = true;
-
-                    video.pause();
-
-                    video.classList.add("hidden");
-
-                    video.src =
-                        pergunta.proximoVideo;
-
-                    video.load();
-
-
-                    video.addEventListener(
-                        "loadedmetadata",
-                        function iniciarNovoVideo() {
-
-                            video.removeEventListener(
-                                "loadedmetadata",
-                                iniciarNovoVideo
-                            );
-
-
-                            // NOVO VÍDEO COMEÇA DO ZERO
-
-                            video.currentTime = 0;
-
-
-                            // PRÓXIMA PERGUNTA
-
-                            perguntaAtual =
-                                pergunta.proximaPergunta;
-
-
-                            // MOSTRA NOVAMENTE O VÍDEO
-
-                            video.classList.remove(
-                                "hidden"
-                            );
-
-
-                            // ESCONDE OS BOTÕES
-
-                            perguntas.classList.add(
-                                "hidden"
-                            );
-
-
-                            perguntaAtiva = false;
-
-
-                            // INICIA O SEGUNDO VÍDEO
-
-                            video.play().catch(
-                                function (erro) {
-
-                                    console.log(
-                                        "Erro ao iniciar o próximo vídeo:",
-                                        erro
-                                    );
-
-                                }
-                            );
-
-
-                            setTimeout(
-                                function () {
-
-                                    mudandoVideo = false;
-
-                                },
-                                300
-                            );
-
-                        }
-                    );
-
-
-                    return;
-                }
-
-
-                // ====================================================
-                // COMPORTAMENTO NORMAL DAS PERGUNTAS
-                // ====================================================
-
+            if (video.currentTime >= pergunta.pararEm) {
                 video.pause();
 
                 atualizarBotoes(pergunta);
-
-                perguntas.classList.remove(
-                    "hidden"
-                );
+                perguntas.classList.remove("hidden");
 
                 perguntaAtiva = true;
-
             }
 
         }

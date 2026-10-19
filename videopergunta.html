@@ -11,12 +11,12 @@
 <body class="overscroll-x-none bg-white min-h-screen">
 
     <header class="flex flex-wrap items-baseline p-5 md:p-10">
-        
+
         <button onclick="home()"
             class="w-24 h-24 md:w-32 md:h-32 bg-yellow-400 border-4 border-[#303638] rounded-[20px] rotate-[-5deg] flex items-center justify-center">
             <i class="fa-solid fa-graduation-cap text-[#303638] text-3xl md:text-4xl rotate-[5deg]"></i>
         </button>
-      
+
 
         <h1 class="text-[#ed3945] text-2xl md:text-4xl font-bold mt-5 flex justify-baseline pl-5 md:pl-9">
             Aprendendo XYZ - Atividades Guiadas
@@ -28,17 +28,12 @@
         <div id="containerVideos" class="w-full">
 
             <!-- VÍDEO ATUAL -->
-            <video id="meuVideo" class="w-full rounded-lg shadow-lg" preload="auto" controls playsinline>
-                <source src="./src/IMG/videopergunta.mp4" type="video/mp4">
+            <video id="meuVideo" class="w-full rounded-lg shadow-lg" preload="auto" autoplay controls playsinline>
+                <source src="./src/IMG/atividadeguiada1.mp4" type="video/mp4">
                 Seu navegador não suporta a reprodução de vídeos.
             </video>
 
             <!-- PRÓXIMO VÍDEO -->
-            <video id="proximoVideo" class="hidden w-full rounded-lg shadow-lg" preload="auto" controls playsinline>
-                <source src="./src/IMG/videopergunta2.mp4" type="video/mp4">
-                Seu navegador não suporta a reprodução de vídeos.
-            </video>
-
         </div>
 
         <div id="perguntas" class="hidden w-full flex flex-row items-center justify-center gap-4">
@@ -71,8 +66,6 @@
             perguntas: [
 
                 {
-                    tipo: "video",
-                    video: "./src/IMG/videopergunta.mp4",
                     pararEm: 3.5,
                     pergunta: "Pergunta 0",
                     botoes: {
@@ -85,7 +78,7 @@
                     respostas: {
                         A: {
                             correta: true,
-                            tempo: 35,
+                            tempo: 42,
                             proxima: 2
                         },
                         B: {
@@ -105,16 +98,13 @@
                         }
                     }
                 },
-
                 {
-                    tipo: "video",
-                    video: "./src/IMG/videopergunta.mp4",
-                    pararEm: 33,
+                    pararEm: 34,
                     pergunta: "Pergunta 1",
 
                     botoes: {
                         A: "Voltar",
-                        B: "Proxima"
+                        B: "Próxima"
                     },
 
                     mostrarC: false,
@@ -123,66 +113,23 @@
                     respostas: {
                         A: {
                             correta: false,
-                            tempo: 6,
-                            proxima: 0,
-                            voltarInicio: true
+                            pagina: "./solidos-geometricos.html"
                         },
 
                         B: {
                             correta: true,
-                            tempo: 58,
-                            proxima: 2
+                            pagina: "videopergunta2.html"
                         }
                     }
                 },
 
                 {
-                    tipo: "video",
-                    video: "./src/IMG/WhatsApp Video 2026-10-01 at 14.39.05.mp4",
-                    pararEm: 63,
-                    pergunta: "Pergunta 2",
-                    botoes: {
-                        A: '<img src="./src/IMG/questão2-vdpergunta-errada2.jpeg" class="max-w-full max-h-20 object-contain mx-auto">',
-                        B: '<img src="./src/IMG/questão2-vdpergunta-errada.jpeg" class="max-w-full max-h-20 object-contain mx-auto">',
-                        C: '<img src="./src/IMG/questão2-vdpergunta-correta.jpeg" class="max-w-full max-h-20 object-contain mx-auto">',
-                        D: '<img src="./src/IMG/questão2-vdpergunta-errada3.jpeg" class="max-w-full max-h-20 object-contain mx-auto">'
-                    },
-                    mostrarC: true,
-                    mostrarD: true,
-
-                    respostas: {
-                        A: {
-                            correta: false,
-                            tempo: 86,
-                            proxima: 3
-                        },
-                        B: {
-                            correta: false,
-                            tempo: 86,
-                            proxima: 3
-                        },
-                        C: {
-                            correta: true,
-                            tempo: 136,
-                            proxima: 4
-                        },
-                        D: {
-                            correta: false,
-                            tempo: 86,
-                            proxima: 3
-                        }
-                    }
-                },
-
-                {
-                    tipo: "video",
-                    video: "./src/IMG/videopergunta.mp4",
-                    pararEm: 130,
-                    pergunta: "Pergunta 3",
+                    pararEm: 65,
+                    pergunta: "Pergunta 1",
 
                     botoes: {
                         A: "Voltar",
-                        B: "Proxima"
+                        B: "Próxima"
                     },
 
                     mostrarC: false,
@@ -191,56 +138,19 @@
                     respostas: {
                         A: {
                             correta: false,
-                            tempo: 86,
-                            proxima: 0,
-                            voltarInicio: true
+                            pagina: "./solidos-geometricos.html"
                         },
 
                         B: {
                             correta: true,
-                            tempo: 141,
-                            proxima: 4
+                            pagina: "videopergunta2.html"
                         }
                     }
                 },
 
+                
                 {
-                    tipo: "video",
-                    video: "./src/IMG/videopergunta.mp4",
-                    pararEm: 168,
-                    pergunta: "Pergunta 4",
 
-                    botoes: {
-                        A: "Voltar",
-                        B: "Proxima"
-                    },
-
-                    mostrarC: false,
-                    mostrarD: false,
-
-                    respostas: {
-                        A: {
-                            correta: false,
-                            tempo: 0,
-                            proxima: 0,
-                            voltarInicio: true
-                        },
-
-                        B: {
-                            correta: true,
-                            tempo: 0,
-                            proxima: 5
-                        }
-                    },
-
-                    proximoVideo: "./src/IMG/videopergunta2.mp4",
-                    proximaPergunta: 5
-                },
-
-                {
-                    tipo: "video",
-
-                    video: "./src/IMG/videopergunta2.mp4",
 
                     pararEm: 8,
 
@@ -288,7 +198,7 @@
                     pararEm: 32,
                     pergunta: "Pergunta 6",
 
-                   
+
 
                     botoes: {
                         A: "Proxima",
@@ -314,9 +224,7 @@
                     }
                 },
                 {
-                    tipo: "video",
 
-                    video: "./src/IMG/videopergunta2.mp4",
 
                     pararEm: 87,
 
@@ -387,9 +295,7 @@
                     }
                 },
                 {
-                    tipo: "video",
 
-                    video: "./src/IMG/videopergunta2.mp4",
 
                     pararEm: 104,
 
