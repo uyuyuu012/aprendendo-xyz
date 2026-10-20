@@ -8,12 +8,13 @@ function validar() {
     }
 
     if (usuario === "admin" && senha === "123") {
-        location.href = "home.html";
+        location.href = "turma.html";
     } else {
         alert("Usuário e senha inválidos.");
     }
 }
 function home() { location.href = "home.html" }
+
 function trocar() { location.href = "ano.html"; }
 function trocar2() { location.href = "unidades.html"; }
 function trocar3() { location.href = "video.html"; }
