@@ -17,10 +17,18 @@ function home() { location.href = "home.html" }
 function trocar() { location.href = "ano.html"; }
 function trocar2() { location.href = "unidades.html"; }
 function trocar3() { location.href = "video.html"; }
-function trocarperguntas() { location.href = "perguntas.html" }
+
 
 function solidos1() { location.href = "video2.html"; }
 function solidos2() { location.href = "videopergunta.html"; }
+function solidos3() { location.href = "videopergunta2.html";}
+function solidos4() { location.href = "videopergunta3.html";}
+function solidos5() { location.href = "videopergunta4.html";}
+function solidos6() { location.href = "videopergunta5.html";}
+function solidos7() { location.href = "perguntas.html";}
+function solidos8() { location.href = "perguntas2.html";}
+function solidos9() { location.href = "perguntas3.html";}
+
 
 const aside = document.getElementById("aside");
 const video2 = document.getElementById("video2");

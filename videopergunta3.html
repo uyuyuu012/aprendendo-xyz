@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="overscroll-x-none bg-white min-h-screen">
+
+    <header class="flex flex-wrap items-baseline p-5 md:p-10">
+
+        <button onclick="home()"
+            class="w-24 h-24 md:w-32 md:h-32 bg-yellow-400 border-4 border-[#303638] rounded-[20px] rotate-[-5deg] flex items-center justify-center">
+            <i class="fa-solid fa-graduation-cap text-[#303638] text-3xl md:text-4xl rotate-[5deg]"></i>
+        </button>
+
+
+        <h1 class="text-[#ed3945] text-2xl md:text-4xl font-bold mt-5 flex justify-baseline pl-5 md:pl-9">
+            Aprendendo XYZ - Atividades Guiadas
+        </h1>
+    </header>
+
+    <section id="video" class="mx-auto w-full md:w-1/2 flex flex-col items-center gap-6 p-5">
+
+        <div id="containerVideos" class="w-full">
+
+            <!-- PRÓXIMO VÍDEO -->
+            <video id="meuVideo" class="w-full rounded-lg shadow-lg" preload="auto" autoplay controls playsinline>
+                <source src="./src/IMG/atividadeguiada3.mp4" type="video/mp4">
+                Seu navegador não suporta a reprodução de vídeos.
+            </video>
+
+        </div>
+
+        <div id="perguntas" class="hidden w-full flex flex-row items-center justify-center gap-4">
+
+            <button id="botao-a" onclick="responder('A')"
+                class="w-full md:w-1/4 bg-blue-700 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-a" class="text-xl md:text-2xl text-white">A</h1>
+            </button>
+
+            <button id="botao-b" onclick="responder('B')"
+                class="w-full md:w-1/4 bg-blue-700 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-b" class="text-xl md:text-2xl text-white">B</h1>
+            </button>
+
+            <button id="botao-c" onclick="responder('C')"
+                class="w-full md:w-1/4 bg-blue-700 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-c" class="text-xl md:text-2xl text-white">C</h1>
+            </button>
+
+            <button id="botao-d" onclick="responder('D')"
+                class="w-full md:w-1/4 bg-blue-700 border-4 border-[#303638] rounded-[20px] flex items-center justify-center h-20 md:h-24">
+                <h1 id="btn-d" class="text-xl md:text-2xl text-white">D</h1>
+            </button>
+
+        </div>
+    </section>
+
+    <script>
+        window.videoConfig = {
+            perguntas: [
+
+                {
+
+
+                    pararEm: 7,
+
+                    pergunta: "Pergunta 1",
+
+                    botoes: {
+                        A: "Pirâmide de base pentagonal.",
+                        B: "Prisma de base pentagonal.",
+                        C: "Pirâmide de base quadrada.",
+                        D: ""
+                    },
+
+                    mostrarC: true,
+                    mostrarD: false,
+
+                    respostas: {
+                        A: {
+                            correta: true,
+                            tempo: 48,
+                            proxima: 2
+                        },
+
+                        B: {
+                            correta: false,
+                            tempo: 19,
+                            proxima: 1
+                        },
+
+                        C: {
+                            correta: false,
+                            tempo: 19,
+                            proxima: 1
+                        },
+
+                        D: {
+                            correta: false,
+                            tempo: 19,
+                            proxima: 1
+                        }
+                    }
+                },
+                {
+                    pararEm: 42,
+                    pergunta: "Pergunta 6",
+
+
+
+                    botoes: {
+                        A: "Proxima",
+                        B: "Voltar"
+                    },
+
+                    mostrarC: false,
+                    mostrarD: false,
+
+                    respostas: {
+                        A: {
+                            correta: true,
+                            pagina: "videopergunta4.html"
+                        },
+
+                        B: {
+                            correta: false,
+                            pagina: "solidos-geometricos.html"
+                        },
+
+                    }
+                },
+                {
+                    pararEm: 68,
+                    pergunta: "Pergunta 6",
+
+
+
+                    botoes: {
+                        A: "Proxima",
+                        B: "Voltar"
+                    },
+
+                    mostrarC: false,
+                    mostrarD: false,
+
+                    respostas: {
+                        A: {
+                            correta: true,
+                            pagina: "videopergunta4.html"
+                        },
+
+                        B: {
+                            correta: false,
+                            pagina: "solidos-geometricos.html"
+                        },
+
+                    }
+                },
+
+
+            ]
+        };
+    </script>
+
+    <script src="./src/JS/script.js"></script>
+</body>
+
+</html>
