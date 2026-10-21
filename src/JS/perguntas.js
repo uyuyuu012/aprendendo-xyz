@@ -1,5 +1,10 @@
 
+function home() {
+    location.href = "home.html";
+}
+
 let etapaAtual = 0;
+
 const letras = ["A", "B", "C", "D"];
 const respostasEmbaralhadas = {};
 
@@ -66,7 +71,8 @@ function mostrarEtapa(indice) {
     respostasEmbaralhadas[indice] = {};
 
     letrasDisponiveis.forEach(function (letra, posicao) {
-        respostasEmbaralhadas[indice][letra] = letrasSorteadas[posicao];
+        respostasEmbaralhadas[indice][letra] =
+            letrasSorteadas[posicao];
     });
 
     letras.forEach(function (letra) {
@@ -91,7 +97,8 @@ function mostrarEtapa(indice) {
         botao.style.display = mostrar ? "" : "none";
 
         if (mostrar) {
-            const letraOriginal = respostasEmbaralhadas[indice][letra];
+            const letraOriginal =
+                respostasEmbaralhadas[indice][letra];
 
             conteudo.innerHTML = etapa.botoes[letraOriginal];
         } else {
@@ -116,18 +123,116 @@ window.responder = function (letra) {
     }
 
     const letraOriginal =
-        respostasEmbaralhadas[etapaAtual]?.[letra] || letra;
+        respostasEmbaralhados[etapaAtual]?.[letra] || letra;
 
     const resposta = etapa.respostas[letraOriginal];
 
-    if (!resposta || resposta.proxima === undefined) {
-        console.error("Resposta sem próxima etapa:", letraOriginal);
+    if (!resposta) {
+        console.error("Resposta não encontrada:", letraOriginal);
         return;
     }
 
-    mostrarEtapa(resposta.proxima);
+    // Mantém a pergunta atual e abre o modal correspondente.
+    if (resposta.correta === true) {
+        window.abrirModal?.(true);
+    } else {
+        window.abrirModal?.(false);
+    }
 };
 
 document.addEventListener("DOMContentLoaded", function () {
     mostrarEtapa(0);
 });
+
+
+let alternativaSelecionada = null;
+
+function responderPrimeiro(alternativa) {
+    const etapa = window.textoConfig?.etapas?.[etapaAtual];
+
+    if (!etapa) {
+        console.error("Etapa não encontrada:", etapaAtual);
+        return;
+    }
+
+    const letraOriginal =
+        respostasEmbaralhadas[etapaAtual]?.[alternativa] || alternativa;
+
+    const resposta = etapa.respostas?.[letraOriginal];
+
+    const modal = document.getElementById("modal-resultado");
+    const icone = document.getElementById("icone-modal");
+    const titulo = document.getElementById("titulo-modal");
+    const texto = document.getElementById("texto-modal");
+
+    if (!resposta || !modal || !icone || !titulo || !texto) {
+        console.error("Resposta ou elemento do modal não encontrado.");
+        return;
+    }
+
+    const acertou = resposta.correta === true;
+
+    const explicacao = etapa.explicacao || {};
+
+    if (acertou) {
+        icone.className =
+            "mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-3xl text-green-600";
+
+        icone.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+
+        titulo.textContent = "Isso mesmo, você acertou!";
+
+        texto.innerHTML = explicacao.acertou || "Parabéns! Você acertou a questão.";
+    } else {
+        icone.className =
+            "mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-100 text-3xl text-red-600";
+
+        icone.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
+
+        titulo.textContent = "Você errou...";
+
+        texto.innerHTML = explicacao.errou || "Não foi dessa vez. Tente novamente!";
+    }
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+
+    document.body.classList.add("overflow-hidden");
+
+    console.log({
+        botaoClicado: alternativa,
+        letraOriginal: letraOriginal,
+        acertou: acertou
+    });
+}
+
+function proximaPerguntaModal() {
+    const modal = document.getElementById("modal-resultado");
+
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+
+    document.body.classList.remove("overflow-hidden");
+
+    if (alternativaSelecionada !== null) {
+        const alternativa = alternativaSelecionada;
+        alternativaSelecionada = null;
+
+        responder(alternativa);
+    }
+}
+
+
+
+
+function fecharModal() {
+    const modal = document.getElementById("modal-resultado");
+
+    if (modal) {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+
+        document.body.classList.remove("overflow-hidden");
+    }
+}
+

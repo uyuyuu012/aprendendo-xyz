@@ -20,7 +20,7 @@
 
         <!-- Nome -->
         <h1 class="text-[#ed3945] text-2xl md:text-4xl font-bold mt-5 flex justify-baseline pl-5 md:pl-9">
-            Aprendendo XYZ - Aula 1
+            Aprendendo XYZ - Grupo de Atividades 1
         </h1>
 
     </header>
@@ -61,9 +61,12 @@
             </button>
         </div>
     </section>
+
     <section id="perguntas" class="bg-red-100 mx-auto w-full md:w-1/2 flex flex-col items-center gap-6 p-5">
         <h1 id="texto-perguntas">
-            2. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate odio, doloremque illo nihil ut perferendis in voluptatibus maiores sit error obcaecati eveniet quas saepe, amet eligendi ipsum iusto placeat fuga?
+            2. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate odio, doloremque illo nihil ut
+            perferendis in voluptatibus maiores sit error obcaecati eveniet quas saepe, amet eligendi ipsum iusto
+            placeat fuga?
         </h1>
         <div class="w-full flex flex-col md:flex-row items-center justify-center gap-4">
             <button id="botao-a" onclick="responderPrimeiro('A')"
@@ -97,7 +100,9 @@
     </section>
     <section id="perguntas" class="bg-red-100 mx-auto w-full md:w-1/2 flex flex-col items-center gap-6 p-5">
         <h1 id="texto-perguntas">
-            3. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque rem veniam sit illum error blanditiis porro cupiditate vitae magni labore possimus, cum temporibus! A perferendis veritatis quos quis repudiandae sapiente.
+            3. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque rem veniam sit illum error blanditiis
+            porro cupiditate vitae magni labore possimus, cum temporibus! A perferendis veritatis quos quis repudiandae
+            sapiente.
         </h1>
         <div class="w-full flex flex-col md:flex-row items-center justify-center gap-4">
             <button id="botao-a" onclick="responderPrimeiro('A')"
@@ -131,7 +136,9 @@
     </section>
     <section id="perguntas" class="bg-red-100 mx-auto w-full md:w-1/2 flex flex-col items-center gap-6 p-5">
         <h1 id="texto-perguntas">
-           4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cumque pariatur voluptatum sint possimus voluptatibus accusantium, obcaecati eius inventore repellendus nemo quo sapiente aliquid ullam non deserunt neque! Quisquam, nemo.
+            4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cumque pariatur voluptatum sint possimus
+            voluptatibus accusantium, obcaecati eius inventore repellendus nemo quo sapiente aliquid ullam non deserunt
+            neque! Quisquam, nemo.
         </h1>
         <div class="w-full flex flex-col md:flex-row items-center justify-center gap-4">
             <button id="botao-a" onclick="responderPrimeiro('A')"
@@ -165,7 +172,9 @@
     </section>
     <section id="perguntas" class="bg-red-100 mx-auto w-full md:w-1/2 flex flex-col items-center gap-6 p-5">
         <h1 id="texto-perguntas">
-            5. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, perferendis voluptate voluptatibus eius architecto temporibus? Optio dolorem mollitia non amet, voluptate soluta officiis quos tempore quo laboriosam libero, possimus odit!
+            5. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, perferendis voluptate voluptatibus eius
+            architecto temporibus? Optio dolorem mollitia non amet, voluptate soluta officiis quos tempore quo
+            laboriosam libero, possimus odit!
         </h1>
         <div class="w-full flex flex-col md:flex-row items-center justify-center gap-4">
             <button id="botao-a" onclick="responderPrimeiro('A')"
@@ -199,7 +208,9 @@
     </section>
     <section id="perguntas" class="bg-red-100 mx-auto w-full md:w-1/2 flex flex-col items-center gap-6 p-5">
         <h1 id="texto-perguntas">
-            6. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure distinctio culpa sit, soluta dignissimos quasi repellendus voluptate vero dolores facilis, optio molestiae voluptatibus quam reprehenderit accusantium magni laudantium voluptatum expedita!
+            6. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure distinctio culpa sit, soluta dignissimos
+            quasi repellendus voluptate vero dolores facilis, optio molestiae voluptatibus quam reprehenderit
+            accusantium magni laudantium voluptatum expedita!
         </h1>
         <div class="w-full flex flex-col md:flex-row items-center justify-center gap-4">
             <button id="botao-a" onclick="responderPrimeiro('A')"
@@ -318,21 +329,26 @@
             <p id="texto-modal" class="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
             </p>
 
-            <button id="btn-proxima-modal" onclick="proximaPerguntaModal()"
-                class="w-full rounded-xl border-2 border-[#303638] bg-yellow-400 px-5 py-4 text-lg font-bold text-[#303638] transition hover:bg-yellow-300 active:scale-95 sm:text-xl">
-                Próxima pergunta
-                <i class="fa-solid fa-arrow-right ml-2"></i>
+
+
+            <button onclick="fecharModal()"
+                class="w-full sm:w-auto min-w-36 bg-blue-700 hover:bg-blue-800 active:scale-95 border-4 border-[#303638] rounded-[20px] px-8 py-3 text-lg font-bold text-white transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                <i class="fa-solid fa-xmark mr-2"></i>
+                Fechar
             </button>
+
+
         </div>
     </div>
 
 
     <script>
-
         window.textoConfig = {
             etapas: [
                 {
-                    texto: `<p class="text-lg md:text-2xl mb-4 md:mb-6">1. Qual desses sólidos geométricos é a figura “intrometida”?</p>`,
+                    texto: `<p class="text-lg md:text-2xl mb-4 md:mb-6">
+                    1. Qual desses sólidos geométricos é a figura “intrometida”?
+                </p>`,
 
                     botoes: {
                         A: '<img src="./src/IMG/ex1-perguntas-errada.jpeg" class="max-w-full max-h-20 object-contain mx-auto">',
@@ -341,216 +357,26 @@
                         D: '<img src="./src/IMG/ex1-perguntas-corretas.jpeg" class="max-w-full max-h-20 object-contain mx-auto">'
                     },
 
-
                     respostas: {
-                        A: { proxima: 3 },
-                        B: { proxima: 3 },
-                        C: { proxima: 3 },
-                        D: { proxima: 3 }
-                    }
-
-                },
-
-                {
-                    texto: '<p class="text-lg md:text-2xl mb-4 md:mb-6"> Você errou Nessa atividade a “figura intrometida” é aquela que não apresenta características comuns aos demais sólidos geométricos. Observe que temos um cubo, um prisma hexagonal, uma esfera e uma pirâmide de base triangular. O cubo, o prisma hexagonal e a pirâmide de base triangular são poliedros, pois possui apenas faces planas e a esfera é um corpo redondo, pois possui uma superfície curva. Por isso, a esfera é a “figura intrometida”.</p>',
-
-                    botoes: {
-                        A: 'Próxima pergunta'
+                        A: { proxima: 3, correta: false },
+                        B: { proxima: 3, correta: false },
+                        C: { proxima: 3, correta: false },
+                        D: { proxima: 3, correta: true }
                     },
+                    explicacao: {
+                    acertou: `
+                        Parabéns! Você acertou!
+                        A esfera é um corpo redondo, pois possui uma superfície curva.
+                    `,
 
-                    respostas: {
-                        A: { proxima: 3 }
-                    },
-
-                    mostrarB: false,
-                    mostrarC: false,
-                    mostrarD: false
-                },
-
-                {
-                    texto: `<p class="text-lg md:text-2xl mb-4 md:mb-6">Isso mesmo você acertou! A “figura intrometida” é aquela que não apresenta características comuns aos demais sólidos geométricos. O cubo, o prisma hexagonal e a pirâmide de base triangular são poliedros, pois possui apenas faces planas e a esfera é um corpo redondo, pois possui uma superfície curva. Por isso, a esfera é a “figura intrometida”.</p>`,
-
-                    botoes: {
-                        A: 'Próxima pergunta'
-                    },
-
-                    respostas: {
-                        A: { proxima: 3 }
-                    },
-
-                    mostrarB: false,
-                    mostrarC: false,
-                    mostrarD: false
-                },
-
-                {
-                    texto: `<p class="text-lg md:text-2xl mb-4 md:mb-6">2. Observe as figuras e descubra qual delas corresponde à planificação do seguinte bloco retangular de base quadrada.</p>
-                    <img src="./src/IMG/ex2-perguntas.jpeg" class="mx-auto max-w-full h-auto">`,
-
-                    botoes: {
-                        A: '<img src="./src/IMG/ex2-perguntas-errada.jpeg" class="max-w-full max-h-20 object-contain mx-auto">',
-                        B: '<img src="./src/IMG/ex2-perguntas-errada2.jpeg" class="max-w-full max-h-20 object-contain mx-auto">',
-                        C: '<img src="./src/IMG/ex2-perguntas-corretas.jpeg" class="max-w-full max-h-20 object-contain mx-auto">',
-                        D: '<img src="./src/IMG/ex2-perguntas-errada3.jpeg" class="max-w-full max-h-20 object-contain mx-auto">'
-                    },
-
-                    respostas: {
-                        A: { proxima: 4 },
-                        B: { proxima: 4 },
-                        C: { proxima: 4 },
-                        D: { proxima: 5 }
-                    }
-                },
-
-                {
-                    texto: '<p class="text-lg md:text-2xl mb-4 md:mb-6">Nesse tipo de atividade é preciso verificar se a planificação possui a quantidade de faces correta, se as figuras correspondem às faces e se a disposição das figuras está correta. Como esse bloco retangular tem base quadrada, 2 faces são quadrados e 4 faces são retângulos, totalizando 6 faces. Assim, a figura apresentada no item a não representa a planificação desse bloco retangular pois é composta por apenas 4 figuras. A figura apresentada no item d não representa a planificação desse bloco retangular pois é composta apenas por quadrados e, a figura apresentada no item b não representa a planificação desse bloco retangular pois a disposição das figuras não está correta. Você pode desenhar esse molde em uma folha de papel, recortar com o auxílio de um adulto e verificar que não é possível montar um bloco retangular com essa figura. A figura apresentada no item c corresponde a planificação do bloco retangular. Observe.</p><img src="./src/IMG/ex2-perguntas-texto.jpeg" class="mx-auto max-w-full h-auto">',
-
-                    botoes: {
-                        A: 'Próxima pergunta'
-                    },
-
-                    respostas: {
-                        A: { proxima: 6 }
-                    },
-
-                    mostrarB: false,
-                    mostrarC: false,
-                    mostrarD: false
-                },
-
-                {
-                    texto: `<p class="text-lg md:text-2xl mb-4 md:mb-6">Isso mesmo!  A figura apresentada no item a não representa a planificação desse bloco retangular pois é composta por apenas 4 figuras. A figura apresentada no item d não representa a planificação desse bloco retangular pois é composta apenas por quadrados e, a figura apresentada no item b não representa a planificação desse bloco retangular pois a disposição das figuras não está correta. Você pode desenhar esse molde em uma folha de papel, recortar com o auxílio de um adulto e verificar que não é possível montar um bloco retangular com essa figura. A figura apresentada no item c é corresponde a planificação do bloco retangular. Observe.</p>`,
-
-                    botoes: {
-                        A: 'Próxima pergunta'
-                    },
-
-                    respostas: {
-                        A: { proxima: 6 }
-                    },
-
-                    mostrarB: false,
-                    mostrarC: false,
-                    mostrarD: false
-                },
-
-                {
-                    texto: '<p class="text-lg md:text-2xl mb-4 md:mb-6">3. A figura mostrada na tela corresponde à planificação de qual sólido geométrico?</p> <img src="./src/IMG/ex3-perguntas.jpeg" class="mx-auto max-w-full h-auto">',
-
-                    mostrarD: false,
-
-                    botoes: {
-                        A: 'Prisma de base triangular',
-                        B: 'Pirâmide de base triangular',
-                        C: 'Pirâmide de base pentagonal',
-                        D: ''
-                    },
-
-                    respostas: {
-                        A: { proxima: 7 },
-                        B: { proxima: 7 },
-                        C: { proxima: 8 },
-                        D: { proxima: 7 }
-                    }
-                },
-                {
-                    texto: '<p class="text-lg md:text-2xl mb-4 md:mb-6">Não é bem isso. Observe que essa figura é composta por um pentágono e por 5 triângulos. Essas faces correspondem à planificação de uma pirâmide de base pentagonal em que o pentágono corresponde à base da pirâmide e os triângulos, às faces laterais. Observe essa outra forma de planificar essa pirâmide.</p> <img src="./src/IMG/ex3-perguntas.jpeg" class="mx-auto max-w-full h-auto">',
-
-
-
-                    botoes: {
-                        A: 'Reiniciar',
-                        B: 'Voltar para a tela de unidades'
-                    },
-
-                    respostas: {
-                        A: { proxima: 0 }
-
-                    },
-                    mostrarC: false,
-                    mostrarD: false
-                },
-                {
-                    texto: `<p class="text-lg md:text-2xl mb-4 md:mb-6">Isso mesmo!  Observe que essa figura é composta por um pentágono e por 5 triângulos. Essas faces correspondem à planificação de uma pirâmide de base pentagonal em que o pentágono corresponde à base da pirâmide e os triângulos, às faces laterais. Observe essa outra forma de planificar essa pirâmide.</p>`,
-
-                    botoes: {
-                        A: 'Reiniciar',
-                        B: 'Voltar para a tela de unidades'
-                    },
-
-                    respostas: {
-                        A: { proxima: 0 }
-
-                    },
-
-
-                    mostrarC: false,
-                    mostrarD: false
+                    errou: `
+                        Você errou! A resposta correta é a esfera.
+                        Ela possui uma superfície curva, enquanto os outros sólidos
+                        possuem apenas faces planas.
+                    `}
                 }
-
             ]
         };
-
-
-        let alternativaSelecionada = null;
-
-        function responderPrimeiro(alternativa) {
-            alternativaSelecionada = alternativa;
-
-            const acertou = alternativa === "D";
-
-            const modal = document.getElementById("modal-resultado");
-            const icone = document.getElementById("icone-modal");
-            const titulo = document.getElementById("titulo-modal");
-            const texto = document.getElementById("texto-modal");
-
-            if (acertou) {
-                icone.className =
-                    "mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-3xl text-green-600";
-
-                icone.innerHTML =
-                    '<i class="fa-solid fa-circle-check"></i>';
-
-                titulo.textContent = "Isso mesmo, você acertou!";
-
-                texto.textContent =
-                    "A esfera é a figura intrometida. O cubo, o prisma hexagonal e a pirâmide de base triangular são poliedros, pois possuem apenas faces planas. Já a esfera é um corpo redondo, pois possui uma superfície curva.";
-            } else {
-                icone.className =
-                    "mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-100 text-3xl text-red-600";
-
-                icone.innerHTML =
-                    '<i class="fa-solid fa-circle-xmark"></i>';
-
-                titulo.textContent = "Você errou...";
-
-                texto.textContent =
-                    "A figura intrometida é a esfera. O cubo, o prisma hexagonal e a pirâmide de base triangular são poliedros, pois possuem apenas faces planas. A esfera é um corpo redondo, pois possui uma superfície curva.";
-            }
-
-            modal.classList.remove("hidden");
-            modal.classList.add("flex");
-
-            document.body.classList.add("overflow-hidden");
-        }
-
-        function proximaPerguntaModal() {
-            const modal = document.getElementById("modal-resultado");
-
-            modal.classList.add("hidden");
-            modal.classList.remove("flex");
-
-            document.body.classList.remove("overflow-hidden");
-
-            if (alternativaSelecionada !== null) {
-                const alternativa = alternativaSelecionada;
-                alternativaSelecionada = null;
-
-                responder(alternativa);
-            }
-        }
-
-
     </script>
 
 
