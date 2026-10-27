@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Aulas</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-white p-4 sm:p-8 font-sans text-[#222]">
+
+    <main class="mx-auto max-w-5xl">
+
+        <!-- Data, horário e impressão -->
+        <section class="mb-8 flex flex-wrap items-center gap-4 sm:gap-8">
+            <div class="flex flex-wrap items-center gap-6">
+                <p class="text-lg">27/04/2028</p>
+                <p class="text-lg">16:45</p>
+            </div>
+
+            <button onclick="window.print()"
+                class="rounded-xl border-2 border-[#a58b9c] bg-[#e6b8d5] px-4 py-2 text-base shadow-sm transition hover:bg-[#dba3c7]">
+                Print de tela
+            </button>
+        </section>
+
+        <!-- Professor e turma -->
+        <section class="mb-6 flex flex-wrap items-center gap-4 sm:gap-8">
+
+            <div class="flex flex-wrap items-center gap-3">
+                <span class="rounded-xl border border-[#e0c6d5] bg-[#f3dce9] px-3 py-2">
+                    Professor:
+                </span>
+
+                <span>Eduardo Henrique</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <span class="rounded-xl border border-[#e0c6d5] bg-[#f3dce9] px-3 py-2">
+                    Turma:
+                </span>
+
+                <span>6° A</span>
+            </div>
+        </section>
+
+        <!-- Seleção de aula -->
+        <section class="mb-8 flex flex-wrap items-center gap-3">
+
+            <label for="aula" class="rounded-xl border border-[#e0c6d5] bg-[#f3dce9] px-4 py-2">
+                Aula:
+            </label>
+
+            <select id="aula"
+                class="min-w-0 flex-1 rounded border border-gray-300 bg-white px-3 py-2 text-sm sm:min-w-[300px] sm:text-base">
+
+                <option value="solidos">6° ano - U2 - Geometria - Sólidos geométricos</option>
+                <option value="poliedros">6° ano - U2 - Geometria - Poliedros</option>
+                <option value="faces">6° ano - U2 - Geometria - Faces, arestas e vértices</option>
+                <option value="fracoes">6° ano - U5 - Matemática - Frações</option>
+            </select>
+
+            <button onclick="atribuirAula()"
+                class="rounded-xl border-2 border-[#a58b9c] bg-[#e6b8d5] px-5 py-2 shadow-sm transition hover:bg-[#dba3c7]">
+                Atribuir
+            </button>
+        </section>
+
+        <!-- Lista de alunos -->
+        <section class="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_230px]">
+
+            <div id="lista-alunos" class="space-y-1">
+
+                <!-- Os alunos são inseridos pelo JavaScript -->
+
+            </div>
+
+            <aside class="flex flex-col items-start gap-5">
+
+                <button onclick="acessarAulas()"
+                    class="rounded-xl border-2 border-[#a58b9c] bg-[#e6b8d5] px-4 py-2 shadow-sm transition hover:bg-[#dba3c7]">
+                    Acessar aulas
+                </button>
+
+            </aside>
+        </section>
+
+    </main>
+
+    <script>
+        const alunos = [
+            "Eliete Nogueira Joyce",
+            "Coper Agnelo M.",
+            "Denyse Alberto Júlio César",
+            "André Alejandro Guimaraes",
+            "Diana Ramos",
+            "Eclésia Amanda Dorneles",
+            "Ana Laura Emanuelle",
+            "Kauana Paula Soares",
+            "Edjane Anchieta",
+            "Cassia Furtado"
+        ];
+
+        const lista = document.getElementById("lista-alunos");
+
+        alunos.forEach((nome, indice) => {
+            const aluno = document.createElement("div");
+
+            aluno.className = "mb-1";
+
+            aluno.innerHTML = `
+                <p class="text-base sm:text-lg">
+                    ${indice + 1}. ${nome}
+                </p>
+
+                <div class="flex flex-wrap items-center gap-2">
+                    <span id="nome-aula-${indice}"
+                        class="text-sm text-[#e85d35]">
+                        Sólidos geométricos
+                    </span>
+
+                    <div class="h-4 w-36 border-2 border-gray-400 bg-white sm:w-40">
+                        <div id="barra-${indice}"
+                            class="h-full bg-[#8ba9d4]"
+                            style="width: 60%">
+                        </div>
+                    </div>
+
+                    <span id="progresso-${indice}" class="text-base">
+                        60%
+                    </span>
+                </div>
+            `;
+
+            lista.appendChild(aluno);
+        });
+
+        function atribuirAula() {
+            const select = document.getElementById("aula");
+            const opcao = select.options[select.selectedIndex];
+
+            const nomesAulas = {
+                solidos: "Sólidos geométricos",
+                poliedros: "Poliedros",
+                faces: "Faces, arestas e vértices",
+                fracoes: "Frações"
+            };
+
+            const nomeAula = nomesAulas[select.value];
+
+            alunos.forEach((_, indice) => {
+                document.getElementById(`nome-aula-${indice}`).textContent =
+                    nomeAula;
+            });
+
+            alert(`A aula "${opcao.text}" foi atribuída aos alunos.`);
+        }
+
+        function acessarAulas() {
+            window.location.href = "home.html";
+        }
+    </script>
+
+</body>
+
+</html>
+```
