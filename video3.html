@@ -13,7 +13,7 @@
     <header class="flex flex-wrap items-baseline p-5 md:p-10">
 
         <!-- Logo -->
-        <button onclick="home()"
+        <button onclick="teoria()"
             class="w-24 h-24 md:w-32 md:h-32 bg-yellow-400 border-4 border-[#303638] rounded-[20px] rotate-[-5deg] flex items-center justify-center">
             <i class="fa-solid fa-graduation-cap text-[#303638] text-3xl md:text-4xl rotate-[5deg]"></i>
         </button>
@@ -65,6 +65,9 @@
 
         </div>
     </section>
+    <script>
+        function teoria() {location.href = "solidos-geometricos.html"}
+    </script>
 
     <script>
 
@@ -73,14 +76,15 @@
 
                 // PERGUNTA 1
                 {
-                    pararEm: 12,
+                    pararEm: 13,
 
                     botoes: {
-                        A: "Poliedros – cubo, cilindro e bloco retangular Corpos redondos – cone, esfera e pirâmides",
-                        B: "Poliedros – pirâmides, cilindro e bloco retangular Corpos redondos – cone, esfera e cubo",
-                        C: "Poliedros – cubo, bloco retangular e pirâmides Corpos redondos – cilindro, cone e esfera.",
-                        D: "sla"
+                        A: "A – bloco retangular B – cubo C – cilindro D – esfera",
+                        B: "A – bloco retangular B – cilindro C – esfera D – cubo",
+                        C: "A – cubo B – cilindro C – esfera D – bloco retangular",
+                        D: ""
                     },
+                    mostrarD: false,
 
                     
 
@@ -106,15 +110,15 @@
                     }
                 },
                 {
-                    pararEm: 45,
+                    pararEm: 46,
 
                     botoes: {
-                        A: "Poliedros – cubo, cilindro e bloco retangular Corpos redondos – cone, esfera e pirâmides",
-                        B: "Poliedros – pirâmides, cilindro e bloco retangular Corpos redondos – cone, esfera e cubo",
-                        C: "Poliedros – cubo, bloco retangular e pirâmides Corpos redondos – cilindro, cone e esfera.",
+                        A: "A – bloco retangular B – cubo C – cilindro D – esfera",
+                        B: "A – bloco retangular B – cilindro C – esfera D – cubo",
+                        C: "A – cubo B – cilindro C – esfera D – bloco retangular",
                         D: ""
                     },
-
+                    mostrarD: false,
 
                    
 
@@ -144,7 +148,7 @@
 
                     botoes: {
                         A: "Voltar para o começo",
-                        B: "Ir para as perguntas"
+                        B: "Proximo"
                     },
 
                     mostrarB: true,
@@ -155,7 +159,7 @@
 
                     respostas: {
                         A: { tempo: 0, proxima: 0 },
-                        B: { pagina: "videopergunta.html" }
+                        B: { pagina: "video4.html" }
                     }
                 }
 
