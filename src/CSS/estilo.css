@@ -1,0 +1,170 @@
+
+/* Tópicos */
+.it {
+    font-size: clamp(16px, 1.9vw, 22px);
+    line-height: 1.4;
+    max-width: 46ch;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity .5s, transform .5s;
+    padding: 10px 12px;
+    border-left: 4px solid #ed3945;
+    background: #ffffff;
+    border-radius: 0 10px 10px 0;
+}
+
+.it.on {
+    opacity: 1;
+    transform: none;
+}
+
+/* Cores dos números */
+.pos {
+    color: #168653;
+    font-weight: 800;
+}
+
+.neg {
+    color: #ed3945;
+    font-weight: 800;
+}
+
+.hl {
+    color: #c18b00;
+    font-weight: 800;
+}
+
+/* Animação SVG */
+.draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: desenhar 1.4s .3s forwards;
+}
+
+@keyframes desenhar {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Números grandes */
+.big {
+    font-size: clamp(28px, 5vw, 56px);
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Chips */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.chip {
+    background: #facc15;
+    color: #303638;
+    border: 3px solid #303638;
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: clamp(16px, 2.2vw, 26px);
+    font-weight: 700;
+}
+
+.chip.pos {
+    background: #7fd6b0;
+    color: #164b34;
+}
+
+.chip.neg {
+    background: #ff8f7a;
+    color: #64251d;
+}
+
+/* Conjunto dos inteiros */
+.zset {
+    border: 4px dashed #ed3945;
+    border-radius: 50%;
+    padding: 36px 44px;
+    text-align: center;
+    font-size: 22px;
+    width: 100%;
+    max-width: 420px;
+    background: white;
+}
+
+.nset {
+    border: 4px solid #168653;
+    border-radius: 50%;
+    padding: 26px 20px;
+    margin-top: 10px;
+    background: #f2efe6;
+}
+
+/* Tabelas */
+#v table {
+    border-collapse: collapse;
+    font-size: clamp(20px, 3vw, 34px);
+    font-weight: 700;
+    background: white;
+    border: 3px solid #303638;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#v td,
+#v th {
+    border: 2px solid #303638;
+    padding: 8px 18px;
+    text-align: center;
+}
+
+#v th {
+    background: #facc15;
+    color: #303638;
+}
+
+/* Barra de progresso */
+#bar i {
+    flex: 1;
+    min-width: 0;
+    height: 10px;
+    border-radius: 5px;
+    background: #303638;
+    opacity: .2;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+#bar i b {
+    position: absolute;
+    inset: 0;
+    background: #ed3945;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+
+#bar i.past {
+    opacity: 1;
+    background: #facc15;
+}
+
+#bar i:focus-visible {
+    outline: 3px solid #ed3945;
+    outline-offset: 3px;
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    .it {
+        transition: none;
+    }
+
+    .draw {
+        animation: none;
+        stroke-dashoffset: 0;
+    }
+}

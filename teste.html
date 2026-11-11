@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Números inteiros e sequências — vídeo-resumo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./src/CSS/estilo.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<body class="overscroll-x-none bg-white min-h-screen text-[#303638]">
+
+    <div class="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10 py-6">
+
+        <!-- Cabeçalho -->
+        <header class="flex flex-wrap items-center gap-5 mb-8">
+
+            <button onclick="home()"
+                class="w-16 h-16 md:w-20 md:h-20 bg-yellow-400 border-4 border-[#303638] rounded-[20px] rotate-[-5deg] flex items-center justify-center">
+
+                <i class="fa-solid fa-graduation-cap text-[#303638] text-2xl md:text-3xl rotate-[5deg]"></i>
+
+            </button>
+
+            <h1 class="text-[#ed3945] text-2xl sm:text-3xl lg:text-4xl font-bold">
+                Aprendendo XYZ - Números inteiros
+            </h1>
+
+        </header>
+
+        <!-- Apresentação -->
+        <div class="w-full">
+
+            <div id="stage"
+                class="relative grid grid-cols-1 min-[761px]:grid-cols-[1fr_1.05fr] items-center gap-7 min-h-0 min-[761px]:min-h-[480px] p-5 sm:p-8 bg-[#f2efe6] text-[#303638] rounded-[20px] border-4 border-[#303638] shadow-[6px_6px_0px_#303638] overflow-hidden">
+
+                <!-- Conteúdo -->
+                <div class="min-w-0">
+
+                    <h2 id="t" class="text-[clamp(26px,3.6vw,42px)] font-extrabold leading-tight mb-5 text-[#ed3945]">
+                    </h2>
+
+                    <ul id="items" class="list-none m-0 p-0 grid gap-3">
+                    </ul>
+
+                </div>
+
+                <!-- Ilustrações -->
+                <div id="v"
+                    class="flex justify-center items-center min-w-0 [&_svg]:w-full [&_svg]:h-auto [&_svg]:max-h-[380px] [&_svg_text]:font-[inherit]">
+                </div>
+
+                <!-- Tela inicial -->
+                <div id="start"
+                    class="absolute inset-0 bg-[#f2efe6] flex flex-col gap-4 items-center justify-center text-center p-5 z-[3]">
+
+                    <div
+                        class="w-20 h-20 bg-yellow-400 border-4 border-[#303638] rounded-[20px] rotate-[-5deg] flex items-center justify-center mb-2">
+                        <i class="fa-solid fa-graduation-cap text-[#303638] text-3xl rotate-[5deg]"></i>
+                    </div>
+
+                    <h2 class="m-0 text-[clamp(28px,5vw,48px)] font-extrabold text-[#ed3945]">
+                        Números inteiros e sequências
+                    </h2>
+
+                    <p class="m-0 max-w-[44ch] text-[#303638] text-base sm:text-lg">
+                        Vídeo-resumo do Capítulo 1 · 7º ano. Quinze cenas explicam cada conceito, com narração opcional
+                        em português.
+                    </p>
+
+                    <button id="go"
+                        class="bg-red-600 text-white text-xl font-bold border-4 border-[#303638] rounded-[15px] px-8 py-3 hover:bg-red-700 hover:scale-105 transition">
+                        Assistir aulas
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Legenda -->
+            <div class="mt-6 p-4 bg-[#f2efe6] border-4 border-[#303638] rounded-[15px]">
+
+                <p id="cap" aria-live="polite"
+                    class="m-0 min-h-[3.6em] text-base sm:text-lg leading-relaxed text-[#303638]">
+                </p>
+
+            </div>
+
+            <!-- Barra de progresso -->
+            <div id="bar" class="flex gap-1 mt-5">
+            </div>
+
+            <!-- Controles -->
+            <div class="flex flex-wrap gap-3 items-center mt-5">
+
+                <button id="prev"
+                    class="bg-yellow-400 text-[#303638] font-bold border-4 border-[#303638] rounded-xl px-4 py-2 hover:bg-yellow-300 transition">
+                    Anterior
+                </button>
+
+                <button id="pp"
+                    class="bg-red-600 text-white font-bold border-4 border-[#303638] rounded-xl px-4 py-2 hover:bg-red-700 transition">
+                    Pausar
+                </button>
+
+                <button id="next"
+                    class="bg-yellow-400 text-[#303638] font-bold border-4 border-[#303638] rounded-xl px-4 py-2 hover:bg-yellow-300 transition">
+                    Próxima
+                </button>
+
+                <label class="flex gap-2 items-center text-sm font-semibold">
+                    Velocidade
+
+                    <select id="spd" class="bg-white text-[#303638] border-2 border-[#303638] rounded-lg px-3 py-2">
+                        <option value="0.8">0,8×</option>
+                        <option value="1" selected>1×</option>
+                        <option value="1.25">1,25×</option>
+                        <option value="1.5">1,5×</option>
+                    </select>
+                </label>
+
+                <label class="flex gap-2 items-center text-sm font-semibold">
+                    <input type="checkbox" id="vox" class="w-4 h-4 accent-red-600">
+                    Narração em voz
+                </label>
+
+                <span id="count" class="ml-auto text-sm font-bold text-[#ed3945]">
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const P = "#7fd6b0";
+        const N = "#ff8f7a";
+        const Y = "#ffd166";
+        const C = "#f2efe6";
+
+        const pos = s => `<b class="pos">${s}</b>`;
+        const neg = s => `<b class="neg">${s}</b>`;
+
+        const f = v => v < 0 ? "−" + (-v) : v > 0 ? "+" + v : "0";
+
+        function nl(a, b, pts = [], arcs = []) {
+            const x = v => 30 + (v - a) / (b - a) * 580;
+
+            let s = `
+        <svg viewBox="0 0 640 170" role="img" aria-label="Reta numerada de ${a} a ${b}">
+            <line x1="14" y1="100" x2="626" y2="100" stroke="${C}" stroke-width="3"/>
+    `;
+
+            for (let v = a; v <= b; v++) {
+                s += `
+            <line x1="${x(v)}" y1="92" x2="${x(v)}" y2="108" stroke="${C}" stroke-width="2"/>
+            <text x="${x(v)}" y="132" text-anchor="middle" fill="${v < 0 ? N : v > 0 ? P : Y}" font-size="17">${f(v)}</text>
+        `;
+            }
+
+            arcs.forEach(([p, q, l, c]) => {
+                const m = (x(p) + x(q)) / 2;
+                const h = Math.min(Math.abs(x(q) - x(p)) * .6, 120);
+                const k = c || Y;
+
+                s += `
+            <path class="draw" pathLength="1"
+                d="M${x(p)} 92 Q${m} ${92 - h * 1.6} ${x(q)} 92"
+                fill="none" stroke="${k}" stroke-width="3.5"/>
+            <text x="${m}" y="${92 - h * .8 - 8}"
+                text-anchor="middle" fill="${k}" font-size="20" font-weight="700">${l}</text>
+        `;
+            });
+
+            pts.forEach(([v, l, c]) => {
+                s += `
+            <circle cx="${x(v)}" cy="100" r="8" fill="${c || Y}"/>
+            <text x="${x(v)}" y="160" text-anchor="middle"
+                fill="${c || Y}" font-size="18" font-weight="700">${l}</text>
+        `;
+            });
+
+            return s + "</svg>";
+        }
+
+        function plano() {
+            const x = v => 270 + v * 50;
+            const y = v => 200 - v * 50;
+
+            let s = `<svg viewBox="0 0 540 400" role="img" aria-label="Plano cartesiano">`;
+
+            for (let i = -5; i <= 5; i++) {
+                s += `
+            <line x1="${x(i)}" y1="0" x2="${x(i)}" y2="400" stroke="#2c4a6a"/>
+        `;
+            }
+
+            for (let i = -4; i <= 4; i++) {
+                s += `
+            <line x1="0" y1="${y(i)}" x2="540" y2="${y(i)}" stroke="#2c4a6a"/>
+        `;
+            }
+
+            s += `
+        <line x1="0" y1="200" x2="540" y2="200" stroke="${C}" stroke-width="3"/>
+        <line x1="270" y1="0" x2="270" y2="400" stroke="${C}" stroke-width="3"/>
+
+        <text x="522" y="190" fill="${C}" font-size="20">x</text>
+        <text x="280" y="20" fill="${C}" font-size="20">y</text>
+        <text x="276" y="216" fill="${Y}" font-size="16">O (0, 0)</text>
+    `;
+
+            [
+                [2, 1, "A(2, 1)", P],
+                [-2, 3, "B(−2, 3)", Y],
+                [-3, -2, "C(−3, −2)", N],
+                [3, -2, "D(3, −2)", Y]
+            ].forEach(([a, b, l, c]) => {
+                s += `
+            <circle cx="${x(a)}" cy="${y(b)}" r="8" fill="${c}"/>
+            <text x="${x(a) + 11}" y="${y(b) - 10}"
+                fill="${c}" font-size="18" font-weight="700">${l}</text>
+        `;
+            });
+
+            return s + "</svg>";
+        }
+
+        const S = [
+            {
+                t: "Números inteiros e sequências",
+                n: "Neste vídeo você revê o Capítulo 1. Vamos ver os números com sinal, a reta numerada, o módulo, os opostos, as quatro operações, a potenciação, as expressões numéricas, o plano cartesiano e as sequências.",
+                i: [
+                    "Números com sinal: " + pos("+") + " e " + neg("−"),
+                    "Conjunto, reta, módulo e opostos",
+                    "Operações, potências e expressões",
+                    "Plano cartesiano e sequências"
+                ],
+                v: nl(-3, 3, [
+                    [-3, "−3", N],
+                    [0, "0", Y],
+                    [3, "+3", P]
+                ])
+            },
+
+            {
+                t: "Positivo, negativo e zero",
+                n: "Usamos números positivos e negativos em situações do dia a dia. Na temperatura, acima de zero grau é positivo e abaixo é negativo. Na altitude, o nível do mar é zero. No fuso horário, Brasília está menos três horas em relação a Londres. No banco, crédito é positivo e dívida é negativa. O zero não é positivo nem negativo.",
+                i: [
+                    "Temperatura: acima de 0 °C é " + pos("positiva") + ", abaixo é " + neg("negativa") + " (São Joaquim: −5 °C)",
+                    "Altitude: Everest " + pos("+8 848 m") + "; fossa das Marianas " + neg("−11 034 m"),
+                    "Fuso horário: Brasília em relação a Londres é " + neg("−3"),
+                    "Dinheiro: saldo " + pos("+R$ 250") + ", dívida " + neg("−R$ 60"),
+                    "O zero não é positivo nem negativo"
+                ],
+                v: `
+            <div class="chips">
+                <span class="chip neg">−5 °C</span>
+                <span class="chip pos">+44,7 °C</span>
+                <span class="chip pos">+8 848 m</span>
+                <span class="chip neg">−11 034 m</span>
+                <span class="chip neg">−3 h</span>
+                <span class="chip neg">−R$ 60,00</span>
+            </div>
+        `
+            },
+
+            {
+                t: "O conjunto dos números inteiros",
+                n: "Os números naturais são zero, um, dois, três e assim por diante. Juntando os naturais com os inteiros negativos, obtemos o conjunto dos números inteiros, representado pela letra Z. Menos quatro pertence a Z, mas não pertence a N. Todo natural é inteiro, mas nem todo inteiro é natural.",
+                i: [
+                    "ℕ = {0, 1, 2, 3, …}",
+                    "ℤ = {…, −2, −1, 0, 1, 2, …}",
+                    "−4 ∈ ℤ (pertence) e −4 ∉ ℕ (não pertence)",
+                    "Todo natural é inteiro; nem todo inteiro é natural"
+                ],
+                v: `
+            <div class="zset">
+                <span class="neg">… −3 −2 −1</span>
+                <div class="nset">
+                    <span class="pos">ℕ: 0 1 2 3 …</span>
+                </div>
+                <b class="hl">ℤ</b>
+            </div>
+        `
+            },
+
+            {
+                t: "Representação na reta numerada",
+                n: "Para representar os inteiros em uma reta, escolhemos um ponto como origem, o zero, e uma unidade de medida. Marcamos os pontos sempre com a mesma unidade. À direita ficam os positivos e à esquerda os negativos. O número que corresponde a um ponto é a abscissa dele. Nem todo ponto da reta é um número inteiro.",
+                i: [
+                    "Origem O no zero e uma unidade de medida",
+                    "Direita: sentido " + pos("positivo") + "; esquerda: sentido " + neg("negativo"),
+                    "Abscissa: o número associado ao ponto",
+                    "Nem todo ponto da reta é inteiro"
+                ],
+                v: nl(-4, 4, [
+                    [0, "O", Y],
+                    [3, "X: +3", P],
+                    [-1, "Y: −1", N]
+                ])
+            },
+
+            {
+                t: "Módulo ou valor absoluto",
+                n: "O módulo de um número inteiro é a distância dele até a origem. Menos dois e mais dois estão a duas unidades do zero, então o módulo de cada um é dois. O módulo nunca é negativo: é positivo, ou zero quando o número é zero.",
+                i: [
+                    "Módulo = distância até o zero",
+                    "|−2| = 2 e |+2| = 2",
+                    "|0| = 0",
+                    "O módulo nunca é negativo"
+                ],
+                v: nl(-3, 3, [
+                    [-2, "−2", N],
+                    [2, "+2", P]
+                ], [
+                    [-2, 0, "2", N],
+                    [0, 2, "2", P]
+                ])
+            },
+
+            {
+                t: "Números opostos ou simétricos",
+                n: "Dois números são opostos quando estão à mesma distância do zero, em lados diferentes. O oposto de quatro é menos quatro. O oposto de menos nove é nove. O oposto de zero é o próprio zero. Por causa dessa simetria, os inteiros também são chamados de inteiros relativos.",
+                i: [
+                    "Oposto de 4 é −4",
+                    "Oposto de −9: −(−9) = +9",
+                    "O oposto de 0 é 0",
+                    "Simetria em relação à origem"
+                ],
+                v: nl(-4, 4, [
+                    [-3, "−3", N],
+                    [3, "+3", P],
+                    [0, "0", Y]
+                ], [
+                    [-3, 3, "opostos"]
+                ])
+            },
+
+            {
+                t: "Comparação de números inteiros",
+                n: "Comparar é dizer qual número é maior, menor ou se são iguais. Na reta, o maior número fica sempre mais à direita. Mais dois é maior que menos três. Entre dois negativos, o maior é o que tem menor módulo: menos um é maior que menos dois. Todo negativo é menor que zero.",
+                i: [
+                    "Maior = mais à direita na reta",
+                    "+2 > −3 (crédito de 2 é melhor que débito de 3)",
+                    "−1 > −2 (−1 °C é mais quente que −2 °C)",
+                    "−4 < 0 e 0 < +1"
+                ],
+                v: nl(-4, 4, [
+                    [-3, "−3", N],
+                    [-2, "−2", N],
+                    [-1, "−1", N],
+                    [2, "+2", P]
+                ])
+            },
+
+            {
+                t: "Adição de números inteiros",
+                n: "Na adição, se os sinais são iguais, somamos os módulos e mantemos o sinal: menos um mais menos três dá menos quatro. Se os sinais são diferentes, subtraímos os módulos e o resultado leva o sinal do número de maior módulo: menos dois mais cinco dá mais três. Números opostos somam zero, e o zero é o elemento neutro.",
+                i: [
+                    "Sinais iguais: soma os módulos, mantém o sinal: (−1) + (−3) = " + neg("−4"),
+                    "Sinais diferentes: subtrai os módulos, sinal do maior módulo: (−2) + (+5) = " + pos("+3"),
+                    "Opostos somam zero: (−4) + (+4) = 0",
+                    "Zero é o elemento neutro"
+                ],
+                v: nl(-4, 4, [
+                    [-2, "−2", N],
+                    [3, "+3", P]
+                ], [
+                    [-2, 3, "+5", P]
+                ])
+            },
+
+            {
+                t: "Subtração de números inteiros",
+                n: "Subtrair é somar com o oposto. Menos nove menos mais dois é o mesmo que menos nove mais menos dois, que dá menos onze. Mais quarenta e oito menos menos oitenta e cinco vira mais quarenta e oito mais oitenta e cinco, que dá cento e trinta e três. Nos inteiros a subtração é sempre possível.",
+                i: [
+                    "Subtrair = somar o oposto",
+                    "(−9) − (+2) = (−9) + (−2) = " + neg("−11"),
+                    "(+48) − (−85) = (+48) + (+85) = " + pos("+133"),
+                    "3 − 5 é impossível em ℕ, mas em ℤ dá " + neg("−2")
+                ],
+                v: nl(-4, 4, [
+                    [3, "3", P],
+                    [-2, "−2", N]
+                ], [
+                    [3, -2, "−5", N]
+                ])
+            },
+
+            {
+                t: "Multiplicação e divisão",
+                n: "Na multiplicação e na divisão, sinais iguais dão resultado positivo e sinais diferentes dão resultado negativo. Se um fator é zero, o produto é zero. A divisão é a operação inversa da multiplicação. Dividir por zero é impossível. Com vários fatores, se o número de fatores negativos é par, o produto é positivo; se é ímpar, é negativo.",
+                i: [
+                    "Sinais iguais: " + pos("+") + "; sinais diferentes: " + neg("−"),
+                    "Fator zero: produto zero",
+                    "Divisão é a inversa: (−12) ÷ (+3) = −4, pois (−4)·(+3) = −12",
+                    "Dividir por 0 é impossível",
+                    "Fatores negativos pares → " + pos("+") + "; ímpares → " + neg("−")
+                ],
+                v: `
+            <table>
+                <tr><th>×</th><th>+</th><th>0</th><th>−</th></tr>
+                <tr><th>+</th><td class="pos">+</td><td>0</td><td class="neg">−</td></tr>
+                <tr><th>0</th><td>0</td><td>0</td><td>0</td></tr>
+                <tr><th>−</th><td class="neg">−</td><td>0</td><td class="pos">+</td></tr>
+            </table>
+        `
+            },
+
+            {
+                t: "Potenciação",
+                n: "Potenciação é multiplicar fatores iguais. Com base negativa, o sinal depende do expoente: expoente par dá resultado positivo e ímpar dá negativo. Menos cinco ao quadrado é vinte e cinco, mas menos cinco ao quadrado sem parênteses é menos vinte e cinco, pois só o cinco é elevado. Zero elevado a um expoente natural diferente de zero é zero, e qualquer base diferente de zero elevada a zero é um.",
+                i: [
+                    "(−5)² = (−5)·(−5) = " + pos("+25") + "; (−2)³ = " + neg("−8"),
+                    "Expoente par → positivo; ímpar com base negativa → negativo",
+                    "(−5)² ≠ −5²: sem parênteses só o 5 é elevado, −5² = " + neg("−25"),
+                    "0ⁿ = 0 (n ≠ 0) e a⁰ = 1 (a ≠ 0)"
+                ],
+                v: `
+            <div class="big">
+                <span class="pos">(−5)² = +25</span><br>
+                <span class="neg">−5² = −25</span><br>
+                <span class="neg">(−2)³ = −8</span>
+            </div>
+        `
+            },
+
+            {
+                t: "Expressões numéricas",
+                n: "Para calcular uma expressão, resolvemos primeiro o que está dentro dos parênteses, depois dos colchetes e das chaves. Em cada nível, a ordem é: potenciação, depois multiplicação e divisão na ordem em que aparecem, e por fim adição e subtração. No exemplo, seis dividido por dois dá três, vinte e cinco vezes menos quatro dá menos cem, e a soma é menos noventa e sete.",
+                i: [
+                    "Primeiro ( ), depois [ ], depois { }",
+                    "1º potenciação",
+                    "2º multiplicação e divisão, da esquerda para a direita",
+                    "3º adição e subtração, da esquerda para a direita"
+                ],
+                v: `
+            <div class="big" style="font-size:clamp(20px,3vw,34px)">
+                6 ÷ (+2) + (−5)² · (−4)<br>
+                = 3 + (+25)·(−4)<br>
+                = 3 + (−100)<br>
+                <span class="neg">= −97</span>
+            </div>
+        `
+            },
+
+            {
+                t: "Plano cartesiano",
+                n: "O plano cartesiano tem dois eixos perpendiculares: o horizontal, x, e o vertical, y. Eles se cruzam na origem, que é o par zero, zero. Cada ponto é um par ordenado: primeiro a abscissa, que diz quanto andar para a direita ou esquerda, depois a ordenada, que diz quanto subir ou descer. A ordem importa: quatro, dois é diferente de dois, quatro.",
+                i: [
+                    "Eixos x (horizontal) e y (vertical), perpendiculares",
+                    "Origem: (0, 0)",
+                    "Par ordenado (abscissa, ordenada)",
+                    "(4, 2) e (2, 4) são pontos diferentes"
+                ],
+                v: plano()
+            },
+
+            {
+                t: "Sequências",
+                n: "Sequência é uma lista ordenada de elementos, chamados termos: a um, a dois, e assim por diante, até o n-ésimo termo. Ela é finita quando tem um número limitado de termos, como os dias da semana, e infinita quando continua sem fim, como os números naturais. Uma sequência é recursiva quando cada termo é obtido a partir do anterior, seguindo uma lei de formação. Já a sequência dos números primos não tem regra assim, então é não recursiva.",
+                i: [
+                    "Termos: a₁, a₂, a₃, …, aₙ; a ordem importa",
+                    "Finita: dias da semana · Infinita: (0, 1, 2, 3, …)",
+                    "Recursiva: 1º termo 3 e cada termo é o dobro do anterior",
+                    "Não recursiva: números primos (2, 3, 5, 7, 11, …)"
+                ],
+                v: `
+            <div class="chips">
+                <span class="chip">3</span>
+                <span class="chip">6</span>
+                <span class="chip">12</span>
+                <span class="chip">24</span>
+                <span class="chip">48</span>
+                <span class="chip hl">…</span>
+            </div>
+            <p class="big" style="font-size:22px">× 2 a cada termo</p>
+        `
+            },
+
+            {
+                t: "Resumo final",
+                n: "Para fechar: inteiros são os naturais e seus opostos. O módulo é a distância até zero. Na reta, quanto mais à direita, maior. Subtrair é somar o oposto. Na multiplicação, sinais iguais dão mais. Na potência, a base negativa depende do expoente. Respeite a ordem nas expressões, localize pontos por pares ordenados e descubra a lei de formação das sequências. Bons estudos!",
+                i: [
+                    "ℤ = naturais + negativos",
+                    "Módulo = distância ao zero; oposto = simétrico",
+                    "Subtração = soma do oposto",
+                    "Sinais iguais (×, ÷) → positivo",
+                    "Ordem das operações e pares ordenados (x, y)",
+                    "Sequências: termos e lei de formação"
+                ],
+                v: nl(-3, 3, [
+                    [-3, "−3", N],
+                    [0, "0", Y],
+                    [3, "+3", P]
+                ], [
+                    [-3, 3, "ℤ"]
+                ])
+            }
+        ];
+
+        const $ = id => document.getElementById(id);
+
+        let cur = 0;
+        let el = 0;
+        let playing = false;
+        let last = 0;
+        let spd = 1;
+        let started = false;
+
+        // Verifica se os elementos necessários existem
+        const ids = ["bar", "vox", "t", "v", "cap", "items", "count",
+            "pp", "go", "start", "prev", "next", "spd"];
+
+        const missing = ids.filter(id => !$(id));
+
+        if (missing.length) {
+            console.error("Elementos HTML não encontrados:", missing);
+        } else {
+
+            // Cria os indicadores da barra de progresso
+            S.forEach((s, k) => {
+                s.d = s.n.length / 13 + 2;
+
+                const b = document.createElement("i");
+                b.tabIndex = 0;
+                b.title = s.t;
+                b.innerHTML = "<b></b>";
+
+                b.onclick = () => go(k);
+
+                b.onkeydown = e => {
+                    if (e.key === "Enter") go(k);
+                };
+
+                $("bar").appendChild(b);
+            });
+
+            function say(txt) {
+                try {
+                    speechSynthesis.cancel();
+
+                    if ($("vox").checked && playing) {
+                        const u = new SpeechSynthesisUtterance(txt);
+                        u.lang = "pt-BR";
+                        u.rate = spd;
+                        speechSynthesis.speak(u);
+                    }
+                } catch (e) {
+                    console.error("Erro na narração:", e);
+                }
+            }
+
+            function go(k) {
+                cur = Math.max(0, Math.min(S.length - 1, k));
+                el = 0;
+
+                const s = S[cur];
+
+                $("t").textContent = s.t;
+                $("v").innerHTML = s.v;
+                $("cap").textContent = s.n;
+
+                $("items").innerHTML = s.i
+                    .map(h => `<li class="it">${h}</li>`)
+                    .join("");
+
+                $("count").textContent = `Cena ${cur + 1} de ${S.length}`;
+
+                [...$("bar").children].forEach((b, j) => {
+                    b.classList.toggle("past", j < cur);
+                    b.firstChild.style.transform = "scaleX(0)";
+                });
+
+                if (started) say(s.n);
+            }
+
+            function tick(now) {
+                if (playing) {
+                    el += (now - last) / 1000 * spd;
+
+                    const s = S[cur];
+
+                    if (el >= s.d) {
+                        if (cur < S.length - 1) {
+                            go(cur + 1);
+                        } else {
+                            playing = false;
+                            $("pp").textContent = "Rever";
+
+                            try {
+                                speechSynthesis.cancel();
+                            } catch (e) { }
+                        }
+                    }
+                }
+
+                last = now;
+
+                const s = S[cur];
+                const n = s.i.length;
+
+                document.querySelectorAll("li.it").forEach((li, k) => {
+                    li.classList.toggle(
+                        "on",
+                        el >= ((k + .3) / (n + .4)) * s.d * .85
+                    );
+                });
+
+                $("bar").children[cur].firstChild.style.transform =
+                    `scaleX(${Math.min(1, el / s.d)})`;
+
+                requestAnimationFrame(tick);
+            }
+
+            function play() {
+                playing = true;
+                $("pp").textContent = "Pausar";
+
+                if ($("vox").checked) {
+                    try {
+                        if (speechSynthesis.paused) {
+                            speechSynthesis.resume();
+                        } else {
+                            say(S[cur].n);
+                        }
+                    } catch (e) { }
+                }
+            }
+
+            function pause() {
+                playing = false;
+                $("pp").textContent = "Continuar";
+
+                try {
+                    speechSynthesis.pause();
+                } catch (e) { }
+            }
+
+            // Iniciar apresentação
+            // Iniciar apresentação
+            $("go").addEventListener("click", () => {
+                $("start").classList.add("hidden");
+
+                started = true;
+                playing = true;
+
+                go(0);
+            });
+
+            // Pausar, continuar ou rever
+            $("pp").onclick = () => {
+                if ($("pp").textContent === "Rever") {
+                    go(0);
+                    play();
+                } else {
+                    playing ? pause() : play();
+                }
+            };
+
+            // Cena anterior
+            $("prev").onclick = () => {
+                go(el > 3 ? cur : cur - 1);
+            };
+
+            // Próxima cena
+            $("next").onclick = () => {
+                go(cur + 1);
+            };
+
+            // Velocidade da narração
+            $("spd").onchange = e => {
+                spd = Number(e.target.value);
+
+                if (started && playing) {
+                    say(S[cur].n);
+                }
+            };
+
+            // Ativar ou desativar voz
+            $("vox").onchange = () => {
+                if ($("vox").checked && playing) {
+                    say(S[cur].n);
+                } else {
+                    try {
+                        speechSynthesis.cancel();
+                    } catch (e) { }
+                }
+            };
+
+            // Atalhos do teclado
+            document.addEventListener("keydown", e => {
+                if (!started) return;
+
+                if (
+                    e.key === " " &&
+                    e.target.tagName !== "BUTTON" &&
+                    e.target.tagName !== "SELECT"
+                ) {
+                    e.preventDefault();
+                    $("pp").click();
+                }
+
+                if (e.key === "ArrowRight") go(cur + 1);
+                if (e.key === "ArrowLeft") go(cur - 1);
+            });
+
+            // Estado inicial
+            go(0);
+
+            requestAnimationFrame(t => {
+                last = t;
+                tick(t);
+            });
+        }
+
+    </script>
+</body>
+
+</html>
